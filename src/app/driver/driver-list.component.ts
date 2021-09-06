@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Driver } from './driver';
+import { DriverService } from './driver.service';
 
 @Component({
   selector: 'app-driver-list',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DriverListComponent implements OnInit {
 
-  constructor() { }
+  driverlist!: Driver[];
+
+  constructor(private driverService: DriverService) {
+
+  }
 
   ngOnInit(): void {
+    this.driverService.getDrivers().subscribe({next: driverlist =>{
+      this.driverlist= driverlist;
+    }
+  })
   }
+
 
 }
