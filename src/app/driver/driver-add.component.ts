@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { Driver } from './driver';
 import { DriverService } from './driver.service';
 
@@ -17,8 +18,10 @@ export class DriverAddComponent implements OnInit {
   }
 
   addDriver(form1 : any) : void {
-    this.driverService.addDriver(this.driver).subscribe
-    (data =>{console.log(data);
+    console.log("in add Drivers",form1.value)
+
+    this.driverService.addDriver(this.driver).
+    subscribe(data =>{console.log(data);
     })
   }
 }

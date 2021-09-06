@@ -3,26 +3,26 @@
     <form #form1 = "ngForm" (ngSubmit) = "addDriver(form1)">
         <div class="form-group">
             <label for="driverName">Name</label>
-            <input [(NgModel)]="driver.driverName"
+            <input [(ngModel)]="driver.driverName"
             placeholder="Name" name = "driverName"
             class="form-control" id = "name">
         </div>
 
         <div class="form-group">
             <label for="lisenceNo">Lisence No</label>
-            <input [(NgModel)]="driver.lisenceNo"
-            placeholder="lisenceNo" name = "lisenceNo"
+            <input [(ngModel)]="driver.lisenceNo"
+            placeholder="Lisence No" name = "lisenceNo"
             class="form-control" id = "lisenceNo">
         </div>
 
         <div class="form-group">
             <label for="cab">Cab</label>
-            <input [(NgModel)]="driver.cab"
+            <input [(ngModel)]="driver.cab"
             placeholder="cab" name = "cab"
             class="form-control" id = "cab">
         </div>
 
         <button type="submit">Submit</button>
-        
+
     </form>
 </div>

@@ -7,8 +7,7 @@ import { CabModule } from './cab/cab.module';
 import { CustomerModule } from './customer/customer.module';
 import { DriverModule } from './driver/driver.module';
 import { TripBookingModule } from './TripBooking/trip-booking.module';
-import { TripBookingListComponent } from './TripBooking/trip-booking-list.component';
-import { NgForm } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +21,8 @@ import { NgForm } from '@angular/forms';
     CustomerModule,
     DriverModule,
     TripBookingModule,
-    NgForm
+    NgForm,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
