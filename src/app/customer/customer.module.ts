@@ -5,6 +5,7 @@ import { CustomerDetailsComponent } from './customer-details.component';
 import { CustomerEditComponent } from './customer-edit.component';
 import { CustomerAddComponent } from './customer-add.component';
 import { CustomerBookingComponent } from './customer-booking.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -17,7 +18,8 @@ import { CustomerBookingComponent } from './customer-booking.component';
     CustomerBookingComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   exports:[
 
