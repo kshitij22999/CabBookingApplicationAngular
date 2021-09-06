@@ -14,25 +14,27 @@ public baseUrl:string = "http://localhost:9191/project/rest/api"
   insertCustomer(customer:Customer):Observable<Customer>{
     return <Observable<Customer>>this.http.post(this.baseUrl+"/customers/insert",customer);
   }
-  /* viewCustomers():Observable<Customer[]>{
-     return  <Observable<Customer[]>>this.http.get(this.baseUrl + "/customers")
-    
+  updateCustomer(customer:Customer):Observable<Customer>{
+    return <Observable<Customer>>this.http.put(this.baseUrl+"/customers/update",customer);
   }
- 
   viewCustomer(id:number):Observable<Customer>{
     console.log("in service class")
     return <Observable<Customer>>this.http.get(this.baseUrl+"/customers/{customerId}"+id);
  
   }
+  /* viewCustomers():Observable<Customer[]>{
+     return  <Observable<Customer[]>>this.http.get(this.baseUrl + "/customers")
+    
+  }
+ 
+  
  
   deleteCustomer(customer:Customer):Observable<Customer>{
     console.log("in service class")
     return <Observable<Customer>>this.http.delete(this.baseUrl+"/customers/delete");
  
   }
-  updateCustomer(customer:Customer):Observable<Customer>{
-    return <Observable<Customer>>this.http.put(this.baseUrl+"/customers/update",customer);
-  }
+  
  
   
   addUnassignedTrip(id:number,tripbooking:TripBooking):Observable<TripBooking>{

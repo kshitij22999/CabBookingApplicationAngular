@@ -6,6 +6,8 @@ import { TripBookingEditComponent } from './trip-booking-edit.component';
 import { TripBookingAddComponent } from './trip-booking-add.component';
 import { TripBookingBillComponent } from './trip-booking-bill.component';
 import { FormsModule, NgForm } from '@angular/forms';
+import { NotAllocatedTripListComponent } from './not-allocated-trip-list.component';
+import { Router, RouterModule } from '@angular/router';
 
 
 
@@ -15,11 +17,13 @@ import { FormsModule, NgForm } from '@angular/forms';
     TripBookingDetailsComponent,
     TripBookingEditComponent,
     TripBookingAddComponent,
-    TripBookingBillComponent
+    TripBookingBillComponent,
+    NotAllocatedTripListComponent
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    RouterModule
   ]
 })
 export class TripBookingModule { }

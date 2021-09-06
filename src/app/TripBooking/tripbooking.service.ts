@@ -14,4 +14,16 @@ export class TripBookingService{
         return this.httpclient.post<TripBooking>(this.baseUrl,tripbooking);
     }
 
+    public getAllTrips(){
+        return this.httpclient.get<TripBooking[]>(this.baseUrl+'/tripbookings')
+    }
+
+    public getNotAllocatedTrips(){
+        return this.httpclient.get<TripBooking[]>(this.baseUrl+'/tripbookings/free')
+    }
+
+    public acceptTrip(id:number){
+        return this.httpclient.put<TripBooking>(this.baseUrl+'/drivers/accept',id)
+    }
+
 }
