@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TripBooking } from './tripbooking';
+import { TripBookingService } from './tripbooking.service';
 
 @Component({
   selector: 'app-trip-booking-add',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TripBookingAddComponent implements OnInit {
 
-  constructor() { }
+  tripBooking!:TripBooking;
+
+  constructor(private tripbookingservice:TripBookingService) { }
 
   ngOnInit(): void {
+  }
+
+  createTripBooking(form1: any):void{
+    this.tripbookingservice.createTripBooking(this.tripBooking).
+    subscribe( data =>{
+      console.log(data);
+    })
   }
 
 }

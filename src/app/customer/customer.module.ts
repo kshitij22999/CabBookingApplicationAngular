@@ -18,6 +18,9 @@ import { CustomerBookingComponent } from './customer-booking.component';
   ],
   imports: [
     CommonModule
+  ],
+  exports:[
+
   ]
 })
 export class CustomerModule { }

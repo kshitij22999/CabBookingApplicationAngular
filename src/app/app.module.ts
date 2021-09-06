@@ -9,6 +9,7 @@ import { CustomerModule } from './customer/customer.module';
 import { DriverModule } from './driver/driver.module';
 import { TripBookingModule } from './TripBooking/trip-booking.module';
 import { TripBookingListComponent } from './TripBooking/trip-booking-list.component';
+import { NgForm } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { TripBookingListComponent } from './TripBooking/trip-booking-list.compon
     CabModule,
     CustomerModule,
     DriverModule,
-    TripBookingModule
+    TripBookingModule,
+    NgForm
   ],
   providers: [],
   bootstrap: [AppComponent]

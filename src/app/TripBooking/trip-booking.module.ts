@@ -5,6 +5,7 @@ import { TripBookingDetailsComponent } from './trip-booking-details.component';
 import { TripBookingEditComponent } from './trip-booking-edit.component';
 import { TripBookingAddComponent } from './trip-booking-add.component';
 import { TripBookingBillComponent } from './trip-booking-bill.component';
+import { FormsModule, NgForm } from '@angular/forms';
 
 
 
@@ -17,7 +18,8 @@ import { TripBookingBillComponent } from './trip-booking-bill.component';
     TripBookingBillComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ]
 })
 export class TripBookingModule { }

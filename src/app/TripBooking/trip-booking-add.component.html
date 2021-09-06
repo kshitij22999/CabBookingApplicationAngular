@@ -1,1 +1,32 @@
-<p>trip-booking-add works!</p>
+<div class="col-md-6">
+    <h2 class="text-center">Cab Booking</h2>
+    <form #form1="ngForm"  (ngSubmit)="createTripBooking(form1)">
+      <div class="form-group" >
+        <label for="fromLocation">Current Location:</label>
+        <input  [(ngModel)]="tripBooking.fromLocation"
+         placeholder="Current Location" name="fromLocation"
+          class="form-control" id="fromLocation">
+      </div>
+    
+      <div class="form-group">
+        <label for="toLocation">To Location:</label>
+        <input [(ngModel)]="tripBooking.toLocation" 
+        placeholder="Destination"
+         name="toLocation" 
+         class="form-control"
+          id="toLocation">
+      </div>
+    
+      <div class="form-group">
+        <label for="CarType">Car Type</label>
+  
+        <input [(ngModel)]="tripBooking.cab"
+         placeholder="Employee Salary"
+          name="salary"
+           class="form-control"
+            id="salary">
+      </div>
+    
+      <button type="submit">Submit</button>
+    </form>
+    </div>
