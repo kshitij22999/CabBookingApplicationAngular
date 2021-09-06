@@ -3,6 +3,9 @@ import { Address } from "./address";
 
 
 export class Customer{
+    filter(arg0: (u: any) => boolean): Customer {
+      throw new Error('Method not implemented.');
+    }
     id!:number;
     username!:string;
     password!:string;

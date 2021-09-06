@@ -22,35 +22,14 @@ public baseUrl:string = "http://localhost:9191/project/rest/api"
     return <Observable<Customer>>this.http.get(this.baseUrl+"/customers/{customerId}"+id);
  
   }
-  /* viewCustomers():Observable<Customer[]>{
-     return  <Observable<Customer[]>>this.http.get(this.baseUrl + "/customers")
-    
-  }
- 
-  
- 
-  deleteCustomer(customer:Customer):Observable<Customer>{
+  viewCustomers():Observable<Customer[]>{
+    return  <Observable<Customer[]>>this.http.get(this.baseUrl + "/customers")
+   
+ }
+ deleteCustomer(customer:Customer):Observable<Customer>{
     console.log("in service class")
     return <Observable<Customer>>this.http.delete(this.baseUrl+"/customers/delete");
  
   }
   
- 
-  
-  addUnassignedTrip(id:number,tripbooking:TripBooking):Observable<TripBooking>{
-      return <Observable<TripBooking>>this.http.post(this.baseUrl+"/customers/book/{id}",id);
-  }
-  checkStatusOfBooking(id:number):Observable<TripBooking>{
-      console.log("in service class")
-      return <Observable<TripBooking>>this.http.get(this.baseUrl+"/customers/status/{id}"+id);
-  }
-  registerCustomer(customer:Customer):Observable<Customer>{
-      return <Observable<Customer>>this.http.post(this.baseUrl+"/customers/register",customer);
-  }
-  loginCustomer(customer:Customer):Observable<Customer>{
-      return <Observable<Customer>>this.http.put(this.baseUrl+"/customers/login",Customer);
-  }
-  logoutCustomer(customer:Customer):Observable<Customer>{
-    return <Observable<Customer>>this.http.put(this.baseUrl+"/customers/logout",Customer);
-} */
 }
