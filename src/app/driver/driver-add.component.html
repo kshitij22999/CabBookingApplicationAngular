@@ -1,1 +1,28 @@
-<p>driver-add works!</p>
+<div class="col-md-6">
+    <h2 class="text-center">Add Driver</h2>
+    <form #form1 = "ngForm" (ngSubmit) = "addDriver(form1)">
+        <div class="form-group">
+            <label for="driverName">Name</label>
+            <input [(NgModel)]="driver.driverName"
+            placeholder="Name" name = "driverName"
+            class="form-control" id = "name">
+        </div>
+
+        <div class="form-group">
+            <label for="lisenceNo">Lisence No</label>
+            <input [(NgModel)]="driver.lisenceNo"
+            placeholder="lisenceNo" name = "lisenceNo"
+            class="form-control" id = "lisenceNo">
+        </div>
+
+        <div class="form-group">
+            <label for="cab">Cab</label>
+            <input [(NgModel)]="driver.cab"
+            placeholder="cab" name = "cab"
+            class="form-control" id = "cab">
+        </div>
+
+        <button type="submit">Submit</button>
+        
+    </form>
+</div>

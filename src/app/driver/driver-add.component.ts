@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Driver } from './driver';
+import { DriverService } from './driver.service';
 
 @Component({
   selector: 'app-driver-add',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DriverAddComponent implements OnInit {
 
-  constructor() { }
+  driver! : Driver;
+
+  constructor( private driverService : DriverService) { }
 
   ngOnInit(): void {
   }
 
+  addDriver(form1 : any) : void {
+    this.driverService.addDriver(this.driver).subscribe
+    (data =>{console.log(data);
+    })
+  }
 }
