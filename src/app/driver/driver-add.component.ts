@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 import { Driver } from './driver';
 import { DriverService } from './driver.service';
 
@@ -11,35 +11,19 @@ import { DriverService } from './driver.service';
 export class DriverAddComponent implements OnInit {
 
   driver! : Driver;
-  addForm! : FormGroup;
 
-  constructor( private formBuilder : FormBuilder ,
-    private driverService : DriverService) { }
+  constructor( private driverService : DriverService) { }
 
-  ngOnInit() {
-    this.addForm = this.formBuilder.group({
-           
-      username:['',Validators.required],
-      password:['',Validators.required],
-      role:['',Validators.required],
-      id: this.driver.id,
-      mobileNumber: this.driver.mobileNo,
-      email:this.driver.email,
-      driverName : this.driver.driverName,
-      address:this.driver.address,
-      tripBooking:this.driver.tripBookings,
-      accountStatus:this.driver.accountStatus,
-      
- })
+  ngOnInit() : void{
   }
 
-  addDriver(addForm: any) : void {
+  addDriver(addForm: NgForm) : void {
   this.driverService.addDriver(this.driver).
     subscribe(data =>{console.log(data);
     })
   }
 
-  onSubmit() : void {
-
+  onSubmit(addForm : NgForm){
+    console.log(addForm.value)
   }
 }
