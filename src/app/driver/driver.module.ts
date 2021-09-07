@@ -4,7 +4,7 @@ import { DriverListComponent } from './driver-list.component';
 import { DriverDetailsComponent } from './driver-details.component';
 import { DriverEditComponent } from './driver-edit.component';
 import { DriverAddComponent } from './driver-add.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -17,7 +17,8 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class DriverModule { }
