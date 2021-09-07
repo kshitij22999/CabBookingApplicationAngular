@@ -1,5 +1,4 @@
 import { Component, OnInit, Output } from '@angular/core';
-import { EventEmitter } from 'stream';
 import { TripBooking } from './tripbooking';
 import { TripBookingService } from './tripbooking.service';
 
