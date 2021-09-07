@@ -5,6 +5,7 @@ import { CabDetailsComponent } from './cab-details.component';
 import { CabEditComponent } from './cab-edit.component';
 import { CabAddComponent } from './cab-add.component';
 import { CabListComponent } from './cab-list.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -16,7 +17,11 @@ import { CabListComponent } from './cab-list.component';
     CabAddComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
+  ],
+  exports:[
+
   ]
 })
 export class CabModule { }
