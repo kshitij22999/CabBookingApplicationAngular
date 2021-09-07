@@ -3,7 +3,7 @@ import { TripBooking } from './tripbooking';
 import { TripBookingService } from './tripbooking.service';
 
 @Component({
-  selector: 'app-trip-booking-add',
+  selector: 'trip-booking-add',
   templateUrl: './trip-booking-add.component.html',
   styleUrls: ['./trip-booking-add.component.css']
 })
@@ -17,6 +17,7 @@ export class TripBookingAddComponent implements OnInit {
   }
 
   createTripBooking(form1: any):void{
+    console.log(form1.value)
     this.tripbookingservice.createTripBooking(this.tripBooking).
     subscribe( data =>{
       console.log(data);

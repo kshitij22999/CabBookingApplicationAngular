@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Driver } from '../driver/driver';
 import { TripBooking } from './tripbooking';
 import { TripBookingService } from './tripbooking.service';
 
 @Component({
-  selector: 'app-not-allocated-trip-list',
+  selector: 'not-allocated-trip-list',
   templateUrl: './not-allocated-trip-list.component.html',
   styleUrls: ['./not-allocated-trip-list.component.css']
 })
@@ -20,7 +21,9 @@ export class NotAllocatedTripListComponent implements OnInit {
   }
 
   acceptTrip(id:number){
-    this.tripbookingservice.acceptTrip(id)
+    this.tripbookingservice.acceptTrip(id);
   }
+
+
 
 }
