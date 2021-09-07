@@ -19,12 +19,12 @@ constructor(private _ActivatedRoute:ActivatedRoute,private formBuilder: FormBuil
  
 ngOnInit() {
  
-  /* this.id = Number(this._ActivatedRoute.snapshot.paramMap.get("id"));
+  this.id = Number(this._ActivatedRoute.snapshot.paramMap.get("id"));
     console.log(this.id+" " +this._ActivatedRoute)
     this.customerservice.viewCustomer(this.id).subscribe(
       (data)=>{console.log(data);this.customer=data;
         this.editForm = this.formBuilder.group({
-          id: this.customer.id,
+          id:this.customer.id,
           username: this.customer.username,
           password: this.customer.password,
           role:this.customer.role,
@@ -37,7 +37,7 @@ ngOnInit() {
 
           
         });},
-    ); */
+    );
     
          
       

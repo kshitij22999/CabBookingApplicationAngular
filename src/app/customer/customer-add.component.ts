@@ -30,9 +30,11 @@ export class CustomerAddComponent implements OnInit {
       
  })
 }
-  insertCustomer(form1:any):void{
-    this.customerservice.insertCustomer(this.customer).subscribe(data =>{console.log(data)
-    })
-   }
+onSubmit() {
+  console.log(this.addForm.value +"from onSubmit of add customer component")
+  this.customerservice.insertCustomer(this.addForm.value).subscribe(
+    data=>this.customer=data,
+    err=>console.log(err)
+  )}
 
 }

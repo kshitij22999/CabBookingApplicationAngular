@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Customer } from './customer';
 import { CustomerService } from './customer.service';
 
@@ -12,7 +13,7 @@ export class CustomerEditComponent implements OnInit {
   customer!:Customer;
   editForm!:FormGroup;
 
-  constructor(private formBuilder: FormBuilder,private customerservice:CustomerService) { }
+  constructor(private formBuilder: FormBuilder,private customerservice:CustomerService,private router: Router) { }
 
   ngOnInit(): void {
     this.editForm = this.formBuilder.group({
@@ -29,11 +30,21 @@ export class CustomerEditComponent implements OnInit {
       accountStatus:this.customer.accountStatus
     })
   }
-  deleteCustomer(customer: Customer): void {
-    this.customerservice.deleteCustomer(customer).subscribe( data => {console.log("user deleted")
-    this.customer=this.customer.filter(u =>u !== customer);
-  })
-}
+  onEdit(){ 
+      this.customerservice.deleteCustomer(this.editForm.value).subscribe( data => {console.log("user deleted")
+      
+    })
+  
+  }
+  
+onSubmit() {
+  console.log(this.editForm.value +"from onSubmit of edit customer component")
+  this.customerservice.updateCustomer(this.editForm.value).subscribe(
+      data => {this.customer =data;this.router.navigate(['customers'])},
+      (err)=>{console.log(err)}
+       
+    )}
+  
 
 
 }

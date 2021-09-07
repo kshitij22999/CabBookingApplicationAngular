@@ -23,7 +23,7 @@ public baseUrl:string = "http://localhost:9191/project/rest/api"
  
   }
   viewCustomers():Observable<Customer[]>{
-    return  <Observable<Customer[]>>this.http.get(this.baseUrl + "/customers")
+    return  <Observable<Customer[]>>this.http.get(this.baseUrl + "/customers");
    
  }
  deleteCustomer(customer:Customer):Observable<Customer>{
