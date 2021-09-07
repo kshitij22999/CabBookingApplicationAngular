@@ -12,29 +12,26 @@ import { CustomerService } from './customer.service';
 export class CustomerEditComponent implements OnInit {
   customer!:Customer;
   editForm!:FormGroup;
+  id!:number;
 
   constructor(private formBuilder: FormBuilder,private customerservice:CustomerService,private router: Router) { }
 
   ngOnInit(): void {
     this.editForm = this.formBuilder.group({
-           
+      id:[''],     
       username:['',Validators.required],
       password:['',Validators.required],
       role:['',Validators.required],
-      id: this.customer.id,
-      mobileNumber:this.customer.mobileNumber,
-      email:this.customer.email,
-      customerName:this.customer.customerName,
-      address:this.customer.address,
+      mobileNumber:['',Validators.required],
+      email:['',Validators.required],
+      customerName:['',Validators.required],
+      address:['',Validators.required],
       tripBooking:this.customer.tripBooking,
       accountStatus:this.customer.accountStatus
     })
-  }
-  onEdit(){ 
-      this.customerservice.deleteCustomer(this.editForm.value).subscribe( data => {console.log("user deleted")
-      
-    })
-  
+    this.customerservice.viewCustomer(this.id)
+    .subscribe(data => {this.editForm.setValue(data);console.log(this.customer);
+    });
   }
   
 onSubmit() {

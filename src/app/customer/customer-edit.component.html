@@ -1,1 +1,45 @@
 <p>customer-edit works!</p>
+<div class="col-md-6 user-container">
+    <h2 class="text-center">Edit Customer</h2>
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+        <div class="hidden">
+            <input type="text" formControlName="id" placeholder="id" name="id" class="form-control" id="id">
+        </div>
+        <div class="form-group"> 
+        <label for="username">User Name:</label>
+        <input type="text" formControlName="username" placeholder="username" name="username" class="form-control" id="username" readonly="true" >
+      </div>
+  
+      
+      <div class="form-group">
+        <label for="Password">Password</label>
+        <input formControlName="password" type="password" placeholder="password" name="password" class="form-control" id="password" readonly="true">
+      </div>
+  
+      <div class="form-group">
+        <label for="Role">Role</label>
+        <input type="text" formControlName="role" placeholder="role" name="role" class="form-control" id="role" readonly="true">
+      </div>
+      <div class="form-group">
+        <label for="customername">Customer Name</label>
+        <input type="text" formControlName="customername" placeholder="customername" name="customername" class="form-control" id="customername" >
+      </div>
+      <div class="form-group">
+        <label for="mobilenumber">Mobile Number</label>
+        <input type="text" formControlName="mobilenumber" placeholder="mobilenumber" name="mobilenumber" class="form-control" id="mobilenumber" >
+      </div>
+      <div class="form-group">
+        <label for="emailId">Email Id</label>
+        <input type="text" formControlName="emailId" placeholder="emailId" name="emailId" class="form-control" id="emailId" >
+      </div>
+      <div class="form-group">
+        <label for="address">Address</label>
+        <input type="text" formControlName="address" placeholder="address" name="address" class="form-control" id="address" >
+      </div>
+      <div class="form-group">
+        <label for="accountstatus">Account Status</label>
+        <input type="text" formControlName="accountstatus" placeholder="accountstatus" name="accountstatus" class="form-control" id="accountstatus" >
+      </div>
+      <input type="submit" value="Edit Customer" button class="btn btn-success">
+    </form>
+  </div>
