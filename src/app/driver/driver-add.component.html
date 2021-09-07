@@ -1,6 +1,6 @@
 <div class="col-md-6">
     <h2 class="text-center">Add Driver</h2>
-    <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+    <form  (ngSubmit)="onSubmit()">
         <div class="form-group">
             <label for="driverName">Name</label>
             <input [(ngModel)]="driver.driverName"

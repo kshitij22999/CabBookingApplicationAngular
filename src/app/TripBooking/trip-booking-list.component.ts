@@ -1,14 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
+import { EventEmitter } from 'stream';
 import { TripBooking } from './tripbooking';
 import { TripBookingService } from './tripbooking.service';
 
 @Component({
-  selector: 'app-trip-booking-list',
+  selector: 'trip-booking-list',
   templateUrl: './trip-booking-list.component.html',
   styleUrls: ['./trip-booking-list.component.css']
 })
 export class TripBookingListComponent implements OnInit {
   tripbookinglst:TripBooking[]=[];
+
+
   
 
   constructor(private tripbookingservice:TripBookingService) { }
@@ -20,5 +23,7 @@ export class TripBookingListComponent implements OnInit {
       }
     })
   }
+
+ 
 
 }

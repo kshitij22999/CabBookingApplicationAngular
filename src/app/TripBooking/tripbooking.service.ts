@@ -26,4 +26,8 @@ export class TripBookingService{
         return this.httpclient.put<TripBooking>(this.baseUrl+'/drivers/accept',id)
     }
 
+    public getTripById(id:number){
+        return this.httpclient.get<TripBooking>(this.baseUrl+'/tripbookings'+id);
+    }
+
 }

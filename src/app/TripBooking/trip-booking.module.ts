@@ -23,7 +23,19 @@ import { Router, RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule
+    RouterModule.forChild([
+      {path:'', component:TripBookingListComponent},
+      {path:':id/edit',component:TripBookingEditComponent},
+      {path:':id',component:TripBookingDetailsComponent}
+    ])
+  ],
+  exports:[
+    TripBookingListComponent,
+    TripBookingDetailsComponent,
+    TripBookingEditComponent,
+    TripBookingAddComponent,
+    TripBookingBillComponent,
+    NotAllocatedTripListComponent
   ]
 })
 export class TripBookingModule { }

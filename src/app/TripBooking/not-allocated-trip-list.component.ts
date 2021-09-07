@@ -3,7 +3,7 @@ import { TripBooking } from './tripbooking';
 import { TripBookingService } from './tripbooking.service';
 
 @Component({
-  selector: 'app-not-allocated-trip-list',
+  selector: 'not-allocated-trip-list',
   templateUrl: './not-allocated-trip-list.component.html',
   styleUrls: ['./not-allocated-trip-list.component.css']
 })
