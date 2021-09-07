@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Customer } from './customer';
 import { CustomerService } from './customer.service';
@@ -15,32 +15,24 @@ export class CustomerDetailsComponent implements OnInit {
   editForm!:FormGroup;
   id:number=0;
  
-constructor(private _ActivatedRoute:ActivatedRoute,private formBuilder: FormBuilder,private router: Router, private customerservice: CustomerService) { }
+constructor(private formBuilder: FormBuilder,private router: Router, private customerservice: CustomerService) { }
  
 ngOnInit() {
- 
-  /* this.id = Number(this._ActivatedRoute.snapshot.paramMap.get("id"));
-    console.log(this.id+" " +this._ActivatedRoute)
-    this.customerservice.viewCustomer(this.id).subscribe(
-      (data)=>{console.log(data);this.customer=data;
-        this.editForm = this.formBuilder.group({
-          id: this.customer.id,
-          username: this.customer.username,
-          password: this.customer.password,
-          role:this.customer.role,
-          mobileNumber:this.customer.mobileNumber,
-          email:this.customer.email,
-          customerName:this.customer.customerName,
-          address:this.customer.address,
-          tripBooking:this.customer.tripBooking,
-          accountStatus:this.customer.accountStatus,
-
-          
-        });},
-    ); */
-    
-         
-      
-    }
+  this.editForm = this.formBuilder.group({
+    id:[''],     
+    username:['',Validators.required],
+    password:['',Validators.required],
+    role:['',Validators.required],
+    mobileNumber:['',Validators.required],
+    email:['',Validators.required],
+    customerName:['',Validators.required],
+    address:['',Validators.required],
+    tripBooking:this.customer.tripBooking,
+    accountStatus:this.customer.accountStatus
+  })
+}
+viewCustomer():void{
+  this.router.navigate(['customer-edit']);
+}
   
 }

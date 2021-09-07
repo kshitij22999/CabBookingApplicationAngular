@@ -1,1 +1,37 @@
 <p>customer-list works!</p>
+<div class="col-md-6 user-container">
+    <h2 style="margin: auto"> Customer Details</h2>
+    <button class="btn btn-danger" style="width:100px" (click)="insertCustomer()"> Add Customer</button>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th class="hidden">Id</th>
+        <th>UserName</th>
+        <th>Role</th>
+        <th>Password</th>
+        <th>CustomerName</th>
+        <th>MobileNumber</th>
+        <th>EmailId</th>
+        <th>Address</th>
+        <th>AccountStatus</th>
+        <th>TripBooking</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let customer of customers">
+        <td class="hidden"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><button class="btn btn-success" (click)="deleteCustomer(customer)"> Delete</button>
+          <button class="btn btn-success" (click)="updateCustomer()"  style="margin-left: 20px;">Update</button></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>

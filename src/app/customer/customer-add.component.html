@@ -1,6 +1,6 @@
 <p>customer-add works!</p>
-<!-- <div class="col-md-6 user-container">
-    <h2 class="text-center">Register</h2>
+<div class="col-md-6 user-container">
+    <h2 class="text-center">Add Customer</h2>
     <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
         <label for="username">User Name:</label>
@@ -17,6 +17,26 @@
         <label for="Role">Role</label>
         <input type="text" formControlName="role" placeholder="role" name="role" class="form-control" id="role">
       </div>
-      <input type="submit" value="Register" class="btn btn-success">
+      <div class="form-group">
+        <label for="customername">Customer Name</label>
+        <input type="text" formControlName="customername" placeholder="customername" name="customername" class="form-control" id="customername" >
+      </div>
+      <div class="form-group">
+        <label for="mobilenumber">Mobile Number</label>
+        <input type="text" formControlName="mobilenumber" placeholder="mobilenumber" name="mobilenumber" class="form-control" id="mobilenumber" >
+      </div>
+      <div class="form-group">
+        <label for="emailId">Email Id</label>
+        <input type="text" formControlName="emailId" placeholder="emailId" name="emailId" class="form-control" id="emailId" >
+      </div>
+      <div class="form-group">
+        <label for="address">Address</label>
+        <input type="text" formControlName="address" placeholder="address" name="address" class="form-control" id="address" >
+      </div>
+      <div class="form-group">
+        <label for="accountstatus">Account Status</label>
+        <input type="text" formControlName="accountstatus" placeholder="accountstatus" name="accountstatus" class="form-control" id="accountstatus" >
+      </div>
+      <input type="submit" value="Add Customer" class="btn btn-success">
     </form>
-  </div> -->
+  </div>
