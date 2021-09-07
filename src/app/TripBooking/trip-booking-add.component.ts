@@ -3,7 +3,7 @@ import { TripBooking } from './tripbooking';
 import { TripBookingService } from './tripbooking.service';
 
 @Component({
-  selector: 'app-trip-booking-add',
+  selector: 'trip-booking-add',
   templateUrl: './trip-booking-add.component.html',
   styleUrls: ['./trip-booking-add.component.css']
 })
