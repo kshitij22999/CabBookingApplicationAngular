@@ -20,7 +20,14 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule.forChild([
+      {path : 'list' , component : DriverListComponent},
+      {path : 'add' , component : DriverAddComponent},
+      {path : 'edit' , component : DriverEditComponent },
+      {path : 'details' , component : DriverDetailsComponent},
+      {path : ' ' , redirectTo : 'list' , pathMatch : 'full'},
+      {path : '**' , redirectTo : 'list' , pathMatch : 'full'}
+    ])
   ],
 })
  
