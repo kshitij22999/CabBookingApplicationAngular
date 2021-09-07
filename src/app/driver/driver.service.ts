@@ -20,15 +20,15 @@ export class DriverService {
         return this.httpclient.delete<Driver>(`${this.baseUrl}/drivers/${driver.id}`);
     }
 
-    public updateDriver(driver : Driver) : Observable <Driver>{
+    public updateDriver(driver : Driver){
         return this.httpclient.patch<Driver>(`${this.baseUrl}/drivers/${driver.id}`, driver);
     }
 
-    public getDrivers() : Observable<Driver[]> {
-        return <Observable<Driver[]>>this.httpclient.get(`${this.baseUrl}/drivers`);
+    public getAllDrivers() {
+        return this.httpclient.get<Driver[]>(`${this.baseUrl}/drivers`);
     }
 
     public getDriver(id: number): Observable<Driver> {
-        return <Observable<Driver>>this.httpclient.get(`${this.baseUrl}/drivers/${id}` )
+        return this.httpclient.get<Driver>(`${this.baseUrl}/drivers/${id}` )
     }
 }

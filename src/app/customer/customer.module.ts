@@ -5,7 +5,7 @@ import { CustomerDetailsComponent } from './customer-details.component';
 import { CustomerEditComponent } from './customer-edit.component';
 import { CustomerAddComponent } from './customer-add.component';
 import { CustomerBookingComponent } from './customer-booking.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,  ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -19,7 +19,8 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports:[
 

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Cab } from './cab';
+import { CabService } from './cab.service';
 
 @Component({
   selector: 'app-cab-list',
@@ -7,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CabListComponent implements OnInit {
 
-  constructor() { }
+  cablist!: Cab[];
+  constructor(private cabservice:CabService) { }
 
   ngOnInit(): void {
   }

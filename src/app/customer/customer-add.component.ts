@@ -12,6 +12,7 @@ export class CustomerAddComponent implements OnInit {
 
   customer!:Customer;
   addForm!: FormGroup;
+  id!:number;
   constructor(private formBuilder: FormBuilder,private customerservice:CustomerService) { }
 
   ngOnInit() {
@@ -20,19 +21,20 @@ export class CustomerAddComponent implements OnInit {
       username:['',Validators.required],
       password:['',Validators.required],
       role:['',Validators.required],
-      id: this.customer.id,
-      mobileNumber:this.customer.mobileNumber,
-      email:this.customer.email,
-      customerName:this.customer.customerName,
-      address:this.customer.address,
+      mobileNumber:['',Validators.required],
+      email:['',Validators.required],
+      customerName:['',Validators.required],
+      address:['',Validators.required],
       tripBooking:this.customer.tripBooking,
       accountStatus:this.customer.accountStatus
       
  })
 }
-  insertCustomer(form1:any):void{
-    this.customerservice.insertCustomer(this.customer).subscribe(data =>{console.log(data)
-    })
-   }
+onSubmit() {
+  console.log(this.addForm.value +"from onSubmit of add customer component")
+  this.customerservice.insertCustomer(this.addForm.value).subscribe(
+    data=>this.customer=data,
+    err=>console.log(err)
+  )}
 
 }
