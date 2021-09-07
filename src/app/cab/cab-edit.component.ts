@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Cab } from './cab';
+import { CabService } from './cab.service';
 
 @Component({
   selector: 'app-cab-edit',
@@ -7,9 +10,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CabEditComponent implements OnInit {
 
-  constructor() { }
+  cab!:Cab;
+  editForm!:FormGroup;
 
+  constructor(private formBuilder: FormBuilder,private cabservice:CabService) { }
+  
   ngOnInit(): void {
+    this.editForm = this.formBuilder.group({
+           
+      
+      cabId: this.cab.cabId,
+      carType: this.cab.carType,
+      perKmRate: this.cab.perKmRate
+     
+    })
   }
+
+  deleteCab(cab: Cab): void {
+    this.cabservice.deleteCab(cab).subscribe( data => {console.log("cab deleted")
+    this.cab=this.cab.filter((u: Cab) =>u !== cab);
+  })
+}
 
 }
