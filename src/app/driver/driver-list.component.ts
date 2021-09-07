@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Driver } from './driver';
 import { DriverService } from './driver.service';
 
@@ -11,7 +12,8 @@ export class DriverListComponent implements OnInit {
 
   driverlist!: Driver[];
 
-  constructor(private driverService: DriverService) {
+  constructor(private driverService: DriverService,
+    private router : Router) {
 
   }
 
@@ -22,6 +24,10 @@ export class DriverListComponent implements OnInit {
           this.driverlist = driverlist;
         }
       })
+  }
+
+  addDriver() : void  {
+    this.router.navigate(['add']);
   }
 
 

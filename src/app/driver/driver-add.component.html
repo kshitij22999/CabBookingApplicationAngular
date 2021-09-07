@@ -1,37 +1,38 @@
 
-<div class="container">
-    <div class="row">
-        <div class="form-bg">
-            <form #addForm="ngForm" (ngSubmit)="onSubmit(addForm)">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
+<div class="col-md-6 user-container">
+    <h2 class="text-center">Add Driver</h2>
+    <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" formControlName="username" placeholder="username" name="username" class="form-control" id="username">
+      </div>
+  
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" formControlName="password" placeholder="password" name="password" class="form-control" id="password">
+      </div>
+  
+      <div class="form-group">
+        <label for="email">Email :</label>
+        <input type="email" placeholder="email" name="email" class="form-control" id="email">
+      </div>
+  
+      <div class="form-group">
+        <label for="lisenceNo">Lisence No:</label>
+        <input formControlName="lisenceNo" placeholder="lisence No" name="lisenceNo" class="form-control" id="lisenceNo">
+      </div>
+  
+      <div class="form-group">
+        <label for="rating">Rating :</label>
+        <input type="number" formControlName="rating" placeholder="cating" name="rating" class="form-control" id="rating">
+      </div>
+  
+      <div class="form-group">
+        <label for="cab">Cab :</label>
+        <input type="text" formControlName="Cab" placeholder="cab" name="cab" class="form-control" id="cab">
+      </div>
+  
+      <button class="btn btn-success">Add</button>
+    </form>
+  </div>
 
-                        <h3>Add Driver</h3>
-                    </div>
-                    <div class="panel-body">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" name="name" class="form-control" ngModel>
-                        </div>
-                        <div class="form-group">
-                            <label for="lisenceNo">Lisence No</label>
-                            <input type="text" name="lisenceNo" class="form-control" ngModel>
-                        </div>
-                        <div class="form-group">
-                            <label for="cab">Cab</label>
-                            <input type="text" name="cab" class="form-control" ngModel>
-                        </div>
-
-                    </div>
-                    <div class="panel-footer">
-                        <button type="submit" class="btn bn-primary">
-                            Submit
-                        </button>
-                    </div>
-                </div>
-
-            </form>
-        </div>
-    </div>
-
-</div>

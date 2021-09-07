@@ -4,7 +4,9 @@
     </div>
 
     <div class="container">
-        <div class="table-responsive">
+        <div class="table-responsive table-striped">
+            <button class="btn btn-danger" style="width:100px" 
+            (click)="addDriver()"> Add Driver</button>
             <table class="table mb-3">
                 <thead>
                     <tr>
@@ -19,22 +21,24 @@
 
                 <tbody>
                     <tr *ngFor="let driver of driverlist">
-                    <td>{{ driver.id }}</td>
-                    <td>{{ driver.username }}</td>
-                    <td>{{ driver.driverName }}</td>
-                    <td>{{ driver.lisenceNo }}</td>
-                    <td>{{ driver.rating }}</td>
-                    <td>{{ driver.cab }}</td>
-                    <td>
-                        <button class="btn btn-outline-primary btn-sm"
-                        [routerLink]="[driver.id, 'edit']">
-                            Edit
-                        </button>
-                    </td>
+                        <td class="hidden"></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <button class="btn btn-success">
+                                Edit
+                            </button>
+                            <button class="btn btn-success">
+                                Delete
+                            </button>
+                        </td>
                     </tr>
+
                 </tbody>
-
-
 
             </table>
         </div>

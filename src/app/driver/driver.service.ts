@@ -28,7 +28,7 @@ export class DriverService {
         return this.httpclient.get<Driver[]>(`${this.baseUrl}/drivers`);
     }
 
-    public getDriver(id: number): Observable<Driver> {
+    public getDriverById(id: number): Observable<Driver> {
         return this.httpclient.get<Driver>(`${this.baseUrl}/drivers/${id}` )
     }
 }
