@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AdminModule } from './admin/admin.module';
 import { AppRoutingModule } from './app-routing.module';
@@ -7,6 +8,8 @@ import { CabModule } from './cab/cab.module';
 import { CustomerModule } from './customer/customer.module';
 import { DriverModule } from './driver/driver.module';
 import { TripBookingModule } from './TripBooking/trip-booking.module';
+
+
 
 
 @NgModule({
@@ -20,7 +23,8 @@ import { TripBookingModule } from './TripBooking/trip-booking.module';
     CabModule,
     CustomerModule,
     DriverModule,
-    TripBookingModule
+    TripBookingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
