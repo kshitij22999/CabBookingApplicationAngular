@@ -6,10 +6,9 @@
       <thead>
       <tr>
         <th class="hidden">Id</th>
-        <th>Id</th>
         <th>UserName</th>
         <th>Role</th>
-        <th>Password</th>
+        <th class="hidden">Password</th>
         <th>CustomerName</th>
         <th>MobileNumber</th>
         <th>EmailId</th>
@@ -20,16 +19,10 @@
       </thead>
       <tbody>
       <tr *ngFor="let customer">
-        <td class="hidden"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td><a [routerLink]="['/customers/',c.id]">{{c.username}}</a></td>
+        <td ngClass="td1"><button (click)="viewCustomer(c)">View Customer</button></td>
+        
+        
       </tr>
       </tbody>
     </table>

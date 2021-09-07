@@ -8,7 +8,7 @@
         <th class="hidden">Id</th>
         <th>UserName</th>
         <th>Role</th>
-        <th>Password</th>
+        <th class="hidden">Password</th>
         <th>CustomerName</th>
         <th>MobileNumber</th>
         <th>EmailId</th>
@@ -19,18 +19,9 @@
       </thead>
       <tbody>
       <tr *ngFor="let customer of customers">
-        <td class="hidden"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td><button class="btn btn-success" (click)="deleteCustomer(customer)"> Delete</button>
-          <button class="btn btn-success" (click)="updateCustomer()"  style="margin-left: 20px;">Update</button></td>
+        <td><a [routerLink]="['/customers/']">{{c.username}}</a></td>
+        <td ngClass="td1"><button class="btn btn-success" (click)="deleteCustomer(c)"> Delete</button></td>
+        <td ngClass="td1"> <button class="btn btn-success" (click)="updateCustomer(c)"  style="margin-left: 20px">Update</button></td>
       </tr>
       </tbody>
     </table>
