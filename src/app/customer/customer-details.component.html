@@ -18,7 +18,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let customer">
+      <tr *ngFor="let c of customer">
         <td><a [routerLink]="['/customers/',c.id]">{{c.username}}</a></td>
         <td ngClass="td1"><button (click)="viewCustomer(c)">View Customer</button></td>
         
