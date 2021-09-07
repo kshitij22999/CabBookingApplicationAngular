@@ -16,10 +16,12 @@ export class DriverListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.driverService.getDrivers().subscribe({next: driverlist =>{
-      this.driverlist= driverlist;
-    }
-  })
+    this.driverService.getAllDrivers().subscribe
+      ({
+        next: driverlist => {
+          this.driverlist = driverlist;
+        }
+      })
   }
 
 
