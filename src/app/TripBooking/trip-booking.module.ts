@@ -5,9 +5,9 @@ import { TripBookingDetailsComponent } from './trip-booking-details.component';
 import { TripBookingEditComponent } from './trip-booking-edit.component';
 import { TripBookingAddComponent } from './trip-booking-add.component';
 import { TripBookingBillComponent } from './trip-booking-bill.component';
-import { FormsModule, NgForm } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { NotAllocatedTripListComponent } from './not-allocated-trip-list.component';
-import { Router, RouterModule } from '@angular/router';
+import {  RouterModule } from '@angular/router';
 
 
 
@@ -23,7 +23,19 @@ import { Router, RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule
+    RouterModule.forChild([
+      {path:'', component:TripBookingListComponent},
+      {path:':id/edit',component:TripBookingEditComponent},
+      {path:':id',component:TripBookingDetailsComponent}
+    ])
+  ],
+  exports:[
+    TripBookingListComponent,
+    TripBookingDetailsComponent,
+    TripBookingEditComponent,
+    TripBookingAddComponent,
+    TripBookingBillComponent,
+    NotAllocatedTripListComponent
   ]
 })
 export class TripBookingModule { }

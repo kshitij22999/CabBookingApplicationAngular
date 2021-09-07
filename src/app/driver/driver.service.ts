@@ -8,12 +8,12 @@ import { Driver } from "./driver";
     providedIn: 'root'
 })
 export class DriverService {
-    baseUrl: string = ' http://localhost:9595/project/rest/api';
+    baseUrl: string = ' http://localhost:9191/project';
 
     constructor(private httpclient: HttpClient) { }
 
     public addDriver(driver: Driver) {
-        return this.httpclient.post<Driver>(this.baseUrl + "/drivers", driver);
+        return this.httpclient.post<Driver>(`${this.baseUrl}/drivers`, driver);
     }
 
     public deleteDriver(driver: Driver) {
@@ -29,6 +29,10 @@ export class DriverService {
     }
 
     public getDriverById(id: number): Observable<Driver> {
-        return this.httpclient.get<Driver>(`${this.baseUrl}/drivers/${id}` )
+        return this.httpclient.get<Driver>(`${this.baseUrl}/drivers/${id}`);
+    }
+
+    public getDriverByUsername(username : string) : Observable<Driver> {
+        return this.httpclient.get<Driver>(`${this.baseUrl}/drivers/${username}`);
     }
 }

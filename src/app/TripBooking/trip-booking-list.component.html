@@ -1,1 +1,37 @@
-<p>trip-booking-list works!</p>
+<div class="card">
+    <div class="card-header">
+      All Trip Bookings
+    </div>
+  
+  
+      <div class="table-responsive">
+        <table class="table mb-0"
+               *ngIf="tripbookinglst && tripbookinglst.length">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Customer</th>
+              <th>From Location</th>
+              <th>To Location</th>
+              <th>Status</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let trip of tripbookinglst">
+              <td>
+                {{trip.id}}
+              </td>
+              <td>{{trip.customer.username}}</td>
+              <td>{{ trip.fromLocation}}</td>
+              <td>{{ trip.toLocation }}</td>
+              <td>{{trip.status}}</td>
+              <td><button [routerLink]="[trip.id]">View Details</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  
+    </div>
+
+
