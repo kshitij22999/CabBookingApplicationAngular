@@ -1,1 +1,20 @@
 <p>admin-details works!</p>
+<h2>Admin Details</h2>
+
+<hr/>
+<div *ngIf="admin">
+    <div>
+        <label><b>UserName:</b></label>{{admin.username}}
+    </div>
+    <div>
+        <label><b>Email Id:</b></label>{{admin.emailId}}
+    </div>
+    <div>
+        <label><b>Mobile No:</b></label>{{admin.mobileNo}}
+    </div>
+    <div>
+        <label><b>Address:</b></label>{{admin.address}}
+    </div>
+</div>
+<p></p>
+<button (click)="list()" class="btn btn-primary">Back to Admin List</button>
