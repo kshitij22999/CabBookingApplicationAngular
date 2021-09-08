@@ -35,7 +35,7 @@ export class DriverEditComponent implements OnInit {
   }
 
   deleteDriver(driver: Driver): void {
-    this.driverService.deleteDriver(driver).subscribe(data => {
+    this.driverService.deleteDriver(driver.id).subscribe(data => {
       console.log("driver deleted")
       this.driver = this.driver.filter(u => u !== driver);
     })
