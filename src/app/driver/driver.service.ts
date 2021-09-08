@@ -8,6 +8,7 @@ import { Driver } from "./driver";
     providedIn: 'root'
 })
 export class DriverService {
+    [x: string]: any;
     baseUrl: string = ' http://localhost:9191/project';
 
     constructor(private httpclient: HttpClient) { }
@@ -16,8 +17,8 @@ export class DriverService {
         return this.httpclient.post<Driver>(`${this.baseUrl}/drivers`, driver);
     }
 
-    public deleteDriver(driver: Driver) {
-        return this.httpclient.delete<Driver>(`${this.baseUrl}/drivers/${driver.id}`);
+    public deleteDriver(id : number) {
+        return this.httpclient.delete<Driver>(`${this.baseUrl}/drivers/${id}`);
     }
 
     public updateDriver(driver : Driver){

@@ -6,6 +6,7 @@ import { DriverEditComponent } from './driver-edit.component';
 import { DriverAddComponent } from './driver-add.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -20,15 +21,12 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forChild([
-      {path : 'list' , component : DriverListComponent},
-      {path : 'add' , component : DriverAddComponent},
-      {path : 'edit' , component : DriverEditComponent },
-      {path : 'details' , component : DriverDetailsComponent},
-      {path : ' ' , redirectTo : 'list' , pathMatch : 'full'},
-      {path : '**' , redirectTo : 'list' , pathMatch : 'full'}
-    ])
+    HttpClientModule,
+    RouterModule
   ],
+  exports : [DriverListComponent,
+  DriverAddComponent,
+DriverEditComponent]
 })
  
 export class DriverModule { }
