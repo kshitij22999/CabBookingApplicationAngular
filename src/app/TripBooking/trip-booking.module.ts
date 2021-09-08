@@ -5,7 +5,7 @@ import { TripBookingDetailsComponent } from './trip-booking-details.component';
 import { TripBookingEditComponent } from './trip-booking-edit.component';
 import { TripBookingAddComponent } from './trip-booking-add.component';
 import { TripBookingBillComponent } from './trip-booking-bill.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NotAllocatedTripListComponent } from './not-allocated-trip-list.component';
 import {  RouterModule } from '@angular/router';
 
@@ -23,13 +23,13 @@ import {  RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forChild([
       {path:'triplist', component:TripBookingListComponent},
       {path:'trips', component:NotAllocatedTripListComponent},
-      {path:':id/edit',component:TripBookingEditComponent},
-      {path:':id',component:TripBookingDetailsComponent},
-      {path:'', component:TripBookingListComponent},
-      {path:'**', component:TripBookingListComponent}
+      {path:'triplist/:id/edit',component:TripBookingEditComponent},
+      {path:'triplist/:id',component:TripBookingDetailsComponent},
+      {path:'add',component:TripBookingAddComponent}
     ])
   ],
   exports:[

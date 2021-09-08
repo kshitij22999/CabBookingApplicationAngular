@@ -5,8 +5,7 @@
   
   
       <div class="table-responsive">
-        <table class="table mb-0"
-               *ngIf="tripbookinglst && tripbookinglst.length">
+        <table class="table mb-0">
           <thead>
             <tr>
               <th>Id</th>
@@ -24,7 +23,7 @@
               <td>
                 {{trip.id}}
               </td>
-              <td>{{trip.customer.username}}</td>
+              <td></td> 
               <td>{{ trip.fromLocation}}</td>
               <td>{{ trip.toLocation }}</td>
               <td>{{trip.status}}</td>

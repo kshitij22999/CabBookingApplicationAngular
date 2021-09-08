@@ -17,6 +17,7 @@ export class TripBookingService{
     }
 
     public getAllTrips(){
+        console.log('service layer');
         return this.httpclient.get<TripBooking[]>(`${this.baseUrl}/tripbookings`);
     }
 
@@ -34,12 +35,13 @@ export class TripBookingService{
         return this.httpclient.get<TripBooking>(`${this.baseUrl}/tripbookings/${id}`);
     }
 
-    public updateTrip(id:number){
-        let tripbooking = this.getTripById(id);
-        return this.httpclient.put<TripBooking>(`${this.baseUrl}/tripbookings`,tripbooking);
+    public updateTrip(tripbooking:TripBooking){
+        return this.httpclient.put<TripBooking>(`${this.baseUrl}/tripbookings/${tripbooking.id}`,tripbooking);
     }
 
     public deleteTrip(id:number){
+        console.log(`deleting service ${id}`)
+        console.log(`${this.baseUrl}/tripbookings/${id}`);
         return this.httpclient.delete<TripBooking>(`${this.baseUrl}/tripbookings/${id}`);
     }
 
