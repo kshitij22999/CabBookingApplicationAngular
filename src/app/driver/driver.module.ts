@@ -26,7 +26,8 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   exports : [DriverListComponent,
   DriverAddComponent,
-DriverEditComponent]
+  DriverEditComponent,
+  DriverDetailsComponent]
 })
  
 export class DriverModule { }
