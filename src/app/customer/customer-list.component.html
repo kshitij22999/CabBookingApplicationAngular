@@ -19,6 +19,17 @@
       </thead>
       <tbody>
       <tr *ngFor="let c of customers">
+        <td>{{c.id}}</td>
+        <td>{{c.username}}</td>
+        <td></td>
+        <td>{{c.password}}</td>
+        <td>{{c.customerName}}</td>
+        <td>{{c.mobileNumber}}</td>
+        <td>{{c.email}}</td>
+        <td>{{c.address.addr}},{{c.address.city}},{{c.address.state}},{{c.address.pincode}}</td>
+        <td>{{c.accountStatus}}</td>
+        <td></td>
+        <!-- <td>{{c.tripBookings}}</td> -->
         
         <td ><button  (click)="deleteCustomer(c)" class="btn-btn-danger"> Delete</button></td>
         <td > <button (click)="updateCustomer()"  class="btn-btn-info" style="margin-left: 20px">Update</button></td>
