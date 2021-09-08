@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Cab } from './cab';
 import { CabService } from './cab.service';
 
@@ -10,9 +11,23 @@ import { CabService } from './cab.service';
 export class CabListComponent implements OnInit {
 
   cablist!: Cab[];
-  constructor(private cabservice:CabService) { }
+  constructor(private cabService: CabService,
+    private router : Router) {
+
+  }
 
   ngOnInit(): void {
+    this.cabService.getAllCabs.subscribe
+      ({
+        next: (cablist: Cab[]) => {
+          this.cablist = cablist;
+        }
+      })
   }
+
+  addCab() : void  {
+    this.router.navigate(['add']);
+  }
+
 
 }

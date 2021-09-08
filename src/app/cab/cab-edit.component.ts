@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Cab } from './cab';
 import { CabService } from './cab.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cab-edit',
@@ -13,7 +14,9 @@ export class CabEditComponent implements OnInit {
   cab!:Cab;
   editForm!:FormGroup;
 
-  constructor(private formBuilder: FormBuilder,private cabservice:CabService) { }
+  constructor(private formBuilder: FormBuilder,
+    private cabService: CabService,
+    private router : Router) { }
   
   ngOnInit(): void {
     this.editForm = this.formBuilder.group({
@@ -27,9 +30,23 @@ export class CabEditComponent implements OnInit {
   }
 
   deleteCab(cab: Cab): void {
-    this.cabservice.deleteCab(cab).subscribe( data => {console.log("cab deleted")
+    this.cabService.deleteCab(cab).subscribe( data => {console.log("cab deleted")
     this.cab=this.cab.filter((u: Cab) =>u !== cab);
   })
 }
-
+onSubmit(){
+  this.cabService.updateCab(this.editForm.value)
+  .subscribe(data => {
+    if(data.status === 200) {
+      alert('Driver updated successfully.');
+    this.router.navigate(['driverlist']);
+   }
+   else{
+     alert(data.message);
+   }
+  },
+  error => {
+    alert(error);
+  });
+}
 }
