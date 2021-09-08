@@ -38,8 +38,8 @@ export class DriverAddComponent implements OnInit {
   
   onSubmit() {
     this.driverService.addDriver(this.addForm.value)
-      .subscribe( data => {
-        this.router.navigate(['list-user']);
-      });
-  }
+      .subscribe( data =>{ this.driver = data},
+        err=>console.log(err)
+      )
+    }
 }
