@@ -16,7 +16,7 @@ export class CabService{
   }
     
 
-  getAllCabs(cab:Cab):Observable<Cab>{
+  getAllCabs(){
       return <Observable<Cab>>this.http.get(this.baseUrl + "/cab/add");
     }
 
