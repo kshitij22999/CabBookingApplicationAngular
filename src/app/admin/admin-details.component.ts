@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Admin } from './admin';
+import { AdminService } from './admin.service';
 
 @Component({
   selector: 'app-admin-details',
@@ -7,9 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminDetailsComponent implements OnInit {
 
-  constructor() { }
+  id: number=0;
+  admin!: Admin;
 
-  ngOnInit(): void {
+  constructor(private route: ActivatedRoute, private router: Router, private adminService: AdminService) { }
+
+  ngOnInit(){
+    this.admin = new Admin();
+    this.id=this.route.snapshot.params['id'];
+
+    this.adminService.getAdmin(this.id).subscribe(data => {
+      console.log(data)
+      this.admin = data;
+    }, error => console.log(error));
+
+    }
+    list() {
+        this.router.navigate(['admins']);
+    }
+
   }
 
-}

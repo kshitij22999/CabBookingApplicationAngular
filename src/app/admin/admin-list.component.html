@@ -1,1 +1,31 @@
 <p>admin-list works!</p>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+    <h2>Admin List</h2>
+    </div>
+    <div class="panel-body">
+    <table class="table table-striped">
+    <thead>
+    <tr>
+    <th>UserName</th>
+    <th>Password</th>
+    <th>EmailId</th>
+    <th>MobileNo</th>
+    <th>Address</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let admin of admins |async">
+    <td>{{admin.username}}</td>
+    <td>{{admin.password}}</td>
+    <td>{{admin.emailId}}</td>
+    <td>{{admin.mobileNo}}</td>
+    <td>{{admin.address}}</td>
+    <td><button (click)="deleteAdmin(admin.id)" class="btn btn-danger">Delete</button>
+    <td><button (click)="editAdmin(admin.id)" class="btn btn-info" style="margin-left:10px">Edit</button>
+    <td><button (click)="adminDetails(admin.id)" class="btn btn-info" style="margin-left:10px">Details</button>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+

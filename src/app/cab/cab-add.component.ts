@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Cab } from './cab';
 import { CabService } from './cab.service';
 
@@ -12,7 +13,9 @@ export class CabAddComponent implements OnInit {
 
   cab!:Cab;
   addForm!: FormGroup;
-  constructor(private formBuilder: FormBuilder,private cabservice:CabService) { }
+  constructor( private cabService : CabService,
+    private router :Router,
+    private formBuilder : FormBuilder) { }
 
   ngOnInit() {
     this.addForm = this.formBuilder.group({
@@ -24,11 +27,11 @@ export class CabAddComponent implements OnInit {
       
  })
 }
-addCab(form1:any):void{
-  this.cabservice.addCab(this.cab).subscribe(data =>{console.log(data)
-  })
- }
  
-   
-
+onSubmit() {
+  this.cabService.addCab(this.addForm.value)
+    .subscribe( data => {
+      this.router.navigate(['list-user']);
+    });
+}
 }

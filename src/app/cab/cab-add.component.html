@@ -1,1 +1,19 @@
-<p>cab-add works!</p>
+<div class="col-md-6 user-container">
+    <h2 class="text-center">Add Cab</h2>
+    <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="carType">carType:</label>
+        <input type="text" formControlName="carType" placeholder="carType" name="carType" class="form-control" id="carType">
+      </div>
+  
+      
+      <div class="form-group">
+        <label for="perKmRate">perKmRate:</label>
+        <input formControlName="perKmRate" placeholder="perKmRate" name="perKmRate" class="form-control" id="perKmRate">
+      </div>
+  
+    
+  
+      <button class="btn btn-success">Add</button>
+    </form>
+  </div>
