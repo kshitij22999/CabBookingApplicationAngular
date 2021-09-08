@@ -13,7 +13,7 @@ export class CustomerEditComponent implements OnInit {
   customer!:Customer;
   editForm!:FormGroup;
   id!:number;
-  submitted = false;
+  submitted=false;
 
   constructor(private formBuilder: FormBuilder,private customerservice:CustomerService,private router: Router) { }
 
