@@ -13,6 +13,7 @@ export class CustomerEditComponent implements OnInit {
   customer!:Customer;
   editForm!:FormGroup;
   id!:number;
+  submitted = false;
 
   constructor(private formBuilder: FormBuilder,private customerservice:CustomerService,private router: Router) { }
 
@@ -34,13 +35,17 @@ export class CustomerEditComponent implements OnInit {
     });
   }
   
-onSubmit() {
+updateCustomer() {
   console.log(this.editForm.value +"from onSubmit of edit customer component")
   this.customerservice.updateCustomer(this.editForm.value).subscribe(
-      data => {this.customer =data;this.router.navigate(['customers'])},
+      data => {console.log(data);this.router.navigate(['customers'])},
       (err)=>{console.log(err)}
        
     )}
+    onSubmit(){
+      this.submitted=true;
+      this.updateCustomer();
+    }
   
 
 
