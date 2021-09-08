@@ -9,7 +9,7 @@ import { Driver } from "./driver";
 })
 export class DriverService {
     [x: string]: any;
-    baseUrl: string = ' http://localhost:9191/project';
+    baseUrl: string = ' http://localhost:9191/project/rest/api';
 
     constructor(private httpclient: HttpClient) { }
 
@@ -22,7 +22,7 @@ export class DriverService {
     }
 
     public updateDriver(driver : Driver){
-        return this.httpclient.patch<Driver>(`${this.baseUrl}/drivers/${driver.id}`, driver);
+        return this.httpclient.patch<Driver>(`${this.baseUrl}/drivers/update/${driver.id}`, driver);
     }
 
     public getAllDrivers() {

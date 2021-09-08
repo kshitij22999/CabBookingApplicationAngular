@@ -17,14 +17,13 @@ export class CabListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.cabService.getAllCabs.subscribe
+    this.cabService.getAllCabs().subscribe
       ({
-        next: (cablist: Cab[]) => {
+        next: cablist => {
           this.cablist = cablist;
         }
       })
   }
-
   addCab() : void  {
     this.router.navigate(['add']);
   }
