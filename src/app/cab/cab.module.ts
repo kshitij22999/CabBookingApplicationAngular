@@ -5,7 +5,8 @@ import { CabDetailsComponent } from './cab-details.component';
 import { CabEditComponent } from './cab-edit.component';
 import { CabAddComponent } from './cab-add.component';
 import { CabListComponent } from './cab-list.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -18,8 +19,18 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule.forChild([
+      {path : 'list' , component : CabListComponent},
+      {path : 'add' , component : CabAddComponent},
+      {path : 'edit' , component : CabEditComponent },
+      {path : 'details' , component : CabDetailsComponent},
+      {path : ' ' , redirectTo : 'list' , pathMatch : 'full'},
+      {path : '**' , redirectTo : 'list' , pathMatch : 'full'}
+    ])
   ],
+
   exports:[
 
   ]
