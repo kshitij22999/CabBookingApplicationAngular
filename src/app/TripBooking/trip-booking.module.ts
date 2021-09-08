@@ -24,9 +24,12 @@ import {  RouterModule } from '@angular/router';
     CommonModule,
     FormsModule,
     RouterModule.forChild([
-      {path:'', component:TripBookingListComponent},
+      {path:'triplist', component:TripBookingListComponent},
+      {path:'trips', component:NotAllocatedTripListComponent},
       {path:':id/edit',component:TripBookingEditComponent},
-      {path:':id',component:TripBookingDetailsComponent}
+      {path:':id',component:TripBookingDetailsComponent},
+      {path:'', component:TripBookingListComponent},
+      {path:'**', component:TripBookingListComponent}
     ])
   ],
   exports:[

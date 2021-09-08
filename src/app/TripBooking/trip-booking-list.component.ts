@@ -23,6 +23,9 @@ export class TripBookingListComponent implements OnInit {
     })
   }
 
+  delete(id:number){
+    this.tripbookingservice.deleteTrip(id);
+  }
  
 
 }

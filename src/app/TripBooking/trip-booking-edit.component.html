@@ -1,1 +1,46 @@
-<p>trip-booking-edit works!</p>
+<div class="col-md-6 user-container">
+    <h2 class="text-center">Edit Driver</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="hidden">
+        <input type="text" formControlName="id" placeholder="id" name="id" class="form-control" id="id">
+      </div>
+      <div class="form-group">
+        <label for="username">UserName :</label>
+        <input type="text" formControlName="username" placeholder="username" 
+        name="username" class="form-control" id="username" readonly="true">
+      </div>
+  
+      <div class="form-group">
+        <label for="Name">Name :</label>
+        <input formControlName="Name" placeholder=" Name" 
+        name="name" class="form-control" id="name">
+      </div>
+  
+      <div class="form-group">
+        <label for="age">Lisence No</label>
+        <input type="number" formControlName="lisenceNo" placeholder="Lisence No" 
+        name="lisenceNo" class="form-control" id="lisenceNo">
+      </div>
+
+      <div class="form-group">
+        <label for="mobileNo">Mobile No :</label>
+        <input formControlName="mobileNo" placeholder="Mobile No" 
+        name="mobileNo" class="form-control" id="mobileNo">
+      </div>
+  
+      <div class="form-group">
+        <label for="rating">Rating :</label>
+        <input type="number" formControlName="salary" placeholder="rating" 
+        name="rating" class="form-control" id="rating">
+      </div>
+
+      <div class="form-group">
+        <label for="cab">Cab :</label>
+        <input formControlName="cab" placeholder="Cab" 
+        name="cab" class="form-control" id="cab">
+      </div>
+  
+      <button class="btn btn-success">Update</button>
+    </form>
+  </div>
+
