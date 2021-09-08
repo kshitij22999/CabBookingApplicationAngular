@@ -19,9 +19,9 @@
       </thead>
       <tbody>
       <tr *ngFor="let c of customers">
-        <td><a [routerLink]="['/customers/']">{{c.username}}</a></td>
-        <td ngClass="td1"><button class="btn btn-success" (click)="deleteCustomer(c)"> Delete</button></td>
-        <td ngClass="td1"> <button class="btn btn-success" (click)="updateCustomer(c)"  style="margin-left: 20px">Update</button></td>
+        <!-- <td><a [routerLink]="['/customers/']">{{c.username}}</a></td> -->
+        <td ngClass="td1"><button  (click)="deleteCustomer(c)"> Delete</button></td>
+        <td ngClass="td1"> <button (click)="updateCustomer()"  style="margin-left: 20px">Update</button></td>
       </tr>
       </tbody>
     </table>
