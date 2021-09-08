@@ -5,6 +5,7 @@ import { AdminDetailsComponent } from './admin-details.component';
 import { AdminEditComponent } from './admin-edit.component';
 import { AdminAddComponent } from './admin-add.component';
 import { AdminMenuComponent } from './admin-menu.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -17,7 +18,9 @@ import { AdminMenuComponent } from './admin-menu.component';
     AdminMenuComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class AdminModule { }

@@ -26,8 +26,12 @@ export class DriverListComponent implements OnInit {
       })
   }
 
+  editDriver(driver: any)  : void {
+    this.router.navigate(['/edit']);
+  }
+
   addDriver() : void  {
-    this.router.navigate(['add']);
+    this.router.navigate(['/add']);
   }
 
 

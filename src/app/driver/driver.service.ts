@@ -8,7 +8,8 @@ import { Driver } from "./driver";
     providedIn: 'root'
 })
 export class DriverService {
-    baseUrl: string = ' http://localhost:9191/project';
+    [x: string]: any;
+    baseUrl: string = ' http://localhost:9191/project/rest/api';
 
     constructor(private httpclient: HttpClient) { }
 
@@ -16,12 +17,12 @@ export class DriverService {
         return this.httpclient.post<Driver>(`${this.baseUrl}/drivers`, driver);
     }
 
-    public deleteDriver(driver: Driver) {
-        return this.httpclient.delete<Driver>(`${this.baseUrl}/drivers/${driver.id}`);
+    public deleteDriver(id : number) {
+        return this.httpclient.delete<Driver>(`${this.baseUrl}/drivers/${id}`);
     }
 
     public updateDriver(driver : Driver){
-        return this.httpclient.patch<Driver>(`${this.baseUrl}/drivers/${driver.id}`, driver);
+        return this.httpclient.patch<Driver>(`${this.baseUrl}/drivers/update/${driver.id}`, driver);
     }
 
     public getAllDrivers() {
