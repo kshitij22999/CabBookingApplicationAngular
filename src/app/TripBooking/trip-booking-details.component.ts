@@ -30,10 +30,10 @@ export class TripBookingDetailsComponent implements OnInit {
   }
 
   backButton(){
-    this.router.navigate(['triplist']);
+    this.router.navigate(['tripbooking','triplist']);
   }
 
   editButton(){
-    this.router.navigate(['triplist',this.tripbooking.id,'edit']);
+    this.router.navigate(['tripbooking','triplist',this.tripbooking.id,'edit']);
   }
 }

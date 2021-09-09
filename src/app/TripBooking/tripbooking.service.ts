@@ -40,7 +40,6 @@ export class TripBookingService{
     }
 
     public deleteTrip(id:number){
-        console.log(`deleting service ${id}`)
         console.log(`${this.baseUrl}/tripbookings/${id}`);
         return this.httpclient.delete<TripBooking>(`${this.baseUrl}/tripbookings/${id}`);
     }

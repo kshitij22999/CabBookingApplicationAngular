@@ -21,7 +21,7 @@ export class TripBookingEditComponent implements OnInit {
       this.tripbooking=tripbooking;
     });
     this.editForm = this.formBuilder.group({
-
+      id:this.tripbooking.id,
       fromLocation:['',Validators.required],
       toLocation:['',Validators.required]
 
@@ -33,7 +33,7 @@ export class TripBookingEditComponent implements OnInit {
     this.tripservice.updateTrip(this.editForm.value).subscribe((data)=>{
         alert('Data updated successfully');
         console.log(data);
-        this.router.navigate(['triplist']);
+        this.router.navigate(['tripbooking','triplist']);
 
     });
     

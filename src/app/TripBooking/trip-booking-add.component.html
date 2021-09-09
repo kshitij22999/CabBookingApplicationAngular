@@ -1,16 +1,16 @@
 <div class="col-md-6">
     <h2 class="text-center">Cab Booking</h2>
-    <form #form1="ngForm"  (ngSubmit)="createTripBooking(form1)">
+    <form [formGroup]="addForm"  (ngSubmit)="onSubmit()">
       <div class="form-group" >
         <label for="fromLocation">Current Location:</label>
-        <input  [(ngModel)]="tripBooking.fromLocation"
+        <input  formControlName="fromLocation"
          placeholder="Current Location" name="fromLocation"
           class="form-control" id="fromLocation">
       </div>
     
       <div class="form-group">
         <label for="toLocation">To Location:</label>
-        <input [(ngModel)]="tripBooking.toLocation" 
+        <input formControlName="toLocation"
         placeholder="Destination"
          name="toLocation" 
          class="form-control"
@@ -20,10 +20,12 @@
       <div class="form-group">
         <label for="CarType">Car Type</label>
   
-        <input [(ngModel)]="tripBooking.cab"
-          name="cabtype"
-           class="form-control"
-            id="cabtype">
+        <select name="cars" id="cars"  formControlName="carType">
+          <option value="volvo">Volvo</option>
+          <option value="saab">Saab</option>
+          <option value="mercedes">Mercedes</option>
+          <option value="audi">Audi</option>
+        </select>
       </div>
     
       <button type="submit">Submit</button>
