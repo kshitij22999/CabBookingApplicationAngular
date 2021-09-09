@@ -8,7 +8,7 @@ import {Customer} from './customer'
   providedIn: 'root'
 })
 export class CustomerService {
-public baseUrl:string = "http://localhost:9191/project/rest/api"
+public baseUrl:string = "http://localhost:9190/project/rest/api"
   constructor(private http:HttpClient) { }
  
   insertCustomer(customer:Customer):Observable<Customer>{
@@ -19,7 +19,7 @@ public baseUrl:string = "http://localhost:9191/project/rest/api"
   }
   viewCustomer(id:number):Observable<any>{
     console.log("in service class")
-    return this.http.get(`${this.baseUrl}/customers/customerId/${id}`);
+    return this.http.get(`${this.baseUrl}/customers/{customerId}`);
  
   }
   viewCustomers():Observable<any>{
