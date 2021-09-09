@@ -7,6 +7,7 @@ import { CabAddComponent } from './cab-add.component';
 import { CabListComponent } from './cab-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -21,18 +22,17 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forChild([
-      {path : 'list' , component : CabListComponent},
-      {path : 'add' , component : CabAddComponent},
-      {path : 'edit' , component : CabEditComponent },
-      {path : 'details' , component : CabDetailsComponent},
-      {path : ' ' , redirectTo : 'list' , pathMatch : 'full'},
-      {path : '**' , redirectTo : 'list' , pathMatch : 'full'}
-    ])
+    HttpClientModule,
+    RouterModule
   ],
 
   exports:[
+    CabListComponent,
+    CabAddComponent,
+    CabEditComponent,
+    CabDetailsComponent
 
   ]
 })
 export class CabModule { }
+

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TripBooking } from './tripbooking';
+import { TripBookingService } from './tripbooking.service';
 
 @Component({
   selector: 'app-trip-booking-bill',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TripBookingBillComponent implements OnInit {
 
-  constructor() { }
+  pageTitle:string = 'Total Bill';
+  tripbooking!:TripBooking;
+
+  constructor(private tripservice:TripBookingService) { }
 
   ngOnInit(): void {
+   
   }
 
 }
