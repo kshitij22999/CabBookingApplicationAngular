@@ -12,18 +12,18 @@ const routes: Routes = [
     path : 'tripbooking' , 
   loadChildren:()=>
   import('./TripBooking/tripbooking-routing.module').then(m=>m.TripbookingRoutingModule)
-},
-  {
-    path : 'driver' , 
+ },
+ {
+    path : 'drivers' , 
     loadChildren:()=>
   import('./driver/driver-routing.module').then(m=>m.DriverRoutingModule)
-  },
-  {
+ },
+ {
     path : 'customer' , 
     loadChildren:()=>
   import('./customer/customer-routing.module').then(m=>m.CustomerRoutingModule)
-  },
-  {
+ },
+ {
     path : 'cab' , 
     loadChildren:()=>
   import('./cab/cab-routing.module').then(m=>m.CabRoutingModule)
@@ -43,4 +43,4 @@ const routes: Routes = [
 export class AppRoutingModule { 
 
   
-}
+} 

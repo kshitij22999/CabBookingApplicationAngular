@@ -1,39 +1,41 @@
 <p>customer-list works!</p>
-<div class="col-md-6 user-container">
-    <h2 style="margin: auto"> Customer Details</h2>
-    <button class="btn btn-danger" style="width:100px" (click)="insertCustomer()"> Add Customer</button>
-    <table class="table table-striped">
-      <thead>
-      <tr>
-        <th class="hidden">Id</th>
-        <th>UserName</th>
-        <th>Role</th>
-        <th class="hidden">Password</th>
-        <th>CustomerName</th>
-        <th>MobileNumber</th>
-        <th>EmailId</th>
-        <th>Address</th>
-        <th>AccountStatus</th>
-        <th>TripBooking</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let c of customers">
-        <td>{{c.id}}</td>
-        <td>{{c.username}}</td>
-        <td></td>
-        <td>{{c.password}}</td>
-        <td>{{c.customerName}}</td>
-        <td>{{c.mobileNumber}}</td>
-        <td>{{c.email}}</td>
-        <td>{{c.address.addr}},{{c.address.city}},{{c.address.state}},{{c.address.pincode}}</td>
-        <td>{{c.accountStatus}}</td>
-        <td></td>
-        <!-- <td>{{c.tripBookings}}</td> -->
-        
-        <td ><button  (click)="deleteCustomer(c)" class="btn-btn-danger"> Delete</button></td>
-        <td > <button (click)="updateCustomer()"  class="btn-btn-info" style="margin-left: 20px">Update</button></td>
-      </tr>
-      </tbody>
-    </table>
+<div class="card">
+  <div class="card-header">
+    <h3>Customer List</h3>
   </div>
+  <div class="container">
+    <div class="table-responsive table-striped">
+      <button class="btn btn-danger" style="width:100px"
+      (click)="insertCustomer()">Add Customer</button>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th class="hidden">Id</th>
+            <th>UserName</th>
+            <th>Role</th>
+            <th class="hidden">Password</th>
+            <th>CustomerName</th>
+            <th>MobileNumber</th>
+            <th>EmailId</th>
+            <th>Address</th>
+            <th>AccountStatus</th>
+            <th>TripBooking</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let customer of customerlist">
+            <td>{{customer.id}}</td>
+            <td>{{customer.username}}</td>
+            <td>{{customer.role}}</td>
+            <td>{{customer.password}}</td>
+            <td>{{customer.customerName}}</td>
+            <td>{{customer.mobileNumber}}</td>
+            <td>{{customer.email}}</td>
+            <td>{{customer.address.addr}},{{customer.address.city}},{{customer.address.state}},{{customer.address.pincode}}</td>
+            <td>{{customer.accountStatus}}</td>
+            <td>{{customer.tripBooking}}</td>
+            <td ><button class="btn-btn-success" (click)="editCustomer(customer)" style="margin-left: 20px;">Edit</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>

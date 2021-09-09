@@ -8,27 +8,28 @@ import {Customer} from './customer'
   providedIn: 'root'
 })
 export class CustomerService {
-public baseUrl:string = "http://localhost:9190/project/rest/api"
+  [x : string]: any;
+  baseUrl:string = "http://localhost:9190/project/rest/api"
   constructor(private http:HttpClient) { }
  
-  insertCustomer(customer:Customer):Observable<Customer>{
-    return <Observable<Customer>>this.http.post(`${this.baseUrl}/customers/insert`,customer);
+  public insertCustomer(customer:Customer){
+    return this.http.post<Customer>(`${this.baseUrl}/customers/insert`,customer);
   }
-  updateCustomer(customer:Customer):Observable<Object>{
-    return this.http.put(`${this.baseUrl}/customers/update`,customer);
+  public updateCustomer(customer:Customer){
+    return this.http.put<Customer>(`${this.baseUrl}/customers/update/${customer.id}`,customer);
   }
-  viewCustomer(id:number):Observable<any>{
+  public viewCustomer(id:number):Observable<Customer>{
     console.log("in service class")
-    return this.http.get(`${this.baseUrl}/customers/{customerId}`);
+    return this.http.get<Customer>(`${this.baseUrl}/customers/{customerId}`);
  
   }
-  viewCustomers():Observable<any>{
-    return this.http.get(`${this.baseUrl}/customers`);
+  public viewCustomers(){
+    return this.http.get<Customer[]>(`${this.baseUrl}/customers`);
    
  }
- deleteCustomer(customer:Customer):Observable<Object>{
+ public deleteCustomer(customer:Customer){
     console.log("in service class")
-    return this.http.delete(`${this.baseUrl}/customers/delete`);
+    return this.http.delete<Customer>(`${this.baseUrl}/customers/delete`);
  
   }
   
