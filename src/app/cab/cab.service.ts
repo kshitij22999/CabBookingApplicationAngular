@@ -17,7 +17,7 @@ export class CabService{
     
 
   getAllCabs(){
-      return <Observable<Cab>>this.http.get(this.baseUrl + "/cab/add");
+      return <Observable<Cab>>this.http.get(this.baseUrl + "/cab/getAllCabs");
     }
 
     updateCab(cab:Cab):Observable<Cab>{

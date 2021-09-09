@@ -1,22 +1,22 @@
 <div class="col-md-6 user-container">
-    <h2 class="text-center">Edit Cab</h2>
-    <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
-      <div class="hidden">
-        <input type="text" formControlName="cabId" placeholder="cabId" name="cabId" class="form-control" id="cabId">
-      </div>
+  <h2 class="text-center">Edit Cab</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div class="hidden">
+      <input type="text" formControlName="cabId" placeholder="cabId" name="cabId" class="form-control" id="cabId">
+    </div>
+    <div class="form-group">
+      <label for="carType">carType:</label>
+      <input type="text" formControlName="carType" placeholder="carType" 
+      name="carType" class="form-control" id="carType" >
+    </div>
 
-      <div class="form-group">
-        <label for="carType">Car Type  :</label>
-        <input type="text" formControlName="carType" placeholder="carType" 
-        name="carType" class="form-control" id="carType" readonly="true">
-      </div>
-  
-      <div class="form-group">
-        <label for="perKmRate">Per Km Rate :</label>
-        <input formControlName="perKmRate" placeholder="perKmRate" 
-        name="perKmRate" class="form-control" id="perKmRate">
-      </div>
-  
-      <button class="btn btn-success">Update</button>
-    </form>
-  </div>  
+    <div class="form-group">
+      <label for="perKmRate">perKmRate :</label>
+      <input formControlName="perKmRate" placeholder="perKmRate" 
+      name="perKmRate" class="form-control" id="perKmRate">
+    </div>
+
+    
+    <button class="btn btn-success">Update</button>
+  </form>
+</div>
