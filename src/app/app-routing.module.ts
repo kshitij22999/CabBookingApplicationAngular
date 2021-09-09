@@ -7,24 +7,14 @@ import { RegisterComponent } from './register/register.component';
 const routes: Routes = [
   {path : 'login' , component : LoginComponent},
   {path : 'logout' , component : LogoutComponent},
-<<<<<<< HEAD
-=======
-
->>>>>>> 7df1f0a2b307694b7b93f76dcaff89aca17956a5
   {path : 'register' , component : RegisterComponent},
   {
     path : 'tripbooking' , 
   loadChildren:()=>
   import('./TripBooking/tripbooking-routing.module').then(m=>m.TripbookingRoutingModule)
-<<<<<<< HEAD
-},
-  {
-    path : 'drivers' , 
-=======
  },
  {
-    path : 'driver' , 
->>>>>>> 7df1f0a2b307694b7b93f76dcaff89aca17956a5
+    path : 'drivers' , 
     loadChildren:()=>
   import('./driver/driver-routing.module').then(m=>m.DriverRoutingModule)
  },
@@ -39,11 +29,8 @@ const routes: Routes = [
   import('./cab/cab-routing.module').then(m=>m.CabRoutingModule)
  }
 ];
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 7df1f0a2b307694b7b93f76dcaff89aca17956a5
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
