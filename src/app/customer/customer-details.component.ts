@@ -12,27 +12,22 @@ import { CustomerService } from './customer.service';
 export class CustomerDetailsComponent implements OnInit {
 
   customer!:Customer;
-  editForm!:FormGroup;
   id:number=0;
  
-constructor(private formBuilder: FormBuilder,private router: Router, private customerservice: CustomerService) { }
+constructor(private router: ActivatedRoute,
+  private customerservice: CustomerService,
+  private route : Router) { }
  
 ngOnInit() {
-  this.editForm = this.formBuilder.group({
-    id:[''],     
-    username:['',Validators.required],
-    password:['',Validators.required],
-    role:['',Validators.required],
-    mobileNumber:['',Validators.required],
-    email:['',Validators.required],
-    customerName:['',Validators.required],
-    address:['',Validators.required],
-    tripBooking:this.customer.tripBooking,
-    accountStatus:this.customer.accountStatus
-  })
+  this.customer=new Customer();
+  this.id = this.router.snapshot.params['id'];
+  this.customerservice.viewCustomer(this.id).subscribe(data => {
+    console.log(data)
+    this.customer=data;
+  },error => console.log(error));
 }
-viewCustomer():void{
-  this.router.navigate(['customer-edit']);
+back(){
+  this.route.navigate(['list']);
 }
-  
+
 }

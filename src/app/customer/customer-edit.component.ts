@@ -12,42 +12,47 @@ import { CustomerService } from './customer.service';
 export class CustomerEditComponent implements OnInit {
   customer!:Customer;
   editForm!:FormGroup;
-  id!:number;
-  submitted=false;
-
+  
   constructor(private formBuilder: FormBuilder,private customerservice:CustomerService,private route: Router) { }
 
   ngOnInit(): void {
     this.editForm = this.formBuilder.group({
-      id:[''],     
       username:['',Validators.required],
       password:['',Validators.required],
       role:['',Validators.required],
-      mobileNumber:['',Validators.required],
-      email:['',Validators.required],
-      customerName:['',Validators.required],
-      address:['',Validators.required],
+      id:this.customer.id,
+      mobileNumber:this.customer.mobileNumber,
+      email:this.customer.email,
+      customerName:this.customer.customerName,
+      address:this.customer.address,
       tripBooking:this.customer.tripBooking,
       accountStatus:this.customer.accountStatus
     })
-    this.customer=new Customer();
-    this.customerservice.viewCustomer(this.id)
-    .subscribe(data => {this.editForm.setValue(data);console.log(this.customer);
-    });
+    
   }
-  
-updateCustomer() {
-  console.log(this.editForm.value +"from onSubmit of edit customer component")
-  this.customerservice.updateCustomer(this.editForm.value).subscribe(
-      data => {console.log(data);this.route.navigate(['customers'])},
-      (err)=>{console.log(err)}
-       
-    )}
-    onSubmit(){
-      this.submitted=true;
-      this.updateCustomer();
-    }
-  
+  deleteCustomer(customer: Customer): void {
+    this.customerservice.deleteCustomer(customer).subscribe(data => {
+      console.log("customer deleted")
+      this.customer = this.customer.filter(u => u !== customer);
+    })
+  }
+
+  onSubmit(){
+    this.customerservice.updateCustomer(this.editForm.value)
+    .subscribe(data => {
+      if(data.status === 200) {
+        alert('Customer updated successfully.');
+      this.route.navigate(['customerlist']);
+     }
+     else{
+       alert(data.message);
+     }
+    },
+    error => {
+      alert(error);
+    });
+  } 
+
 
 
 }

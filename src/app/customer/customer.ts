@@ -3,6 +3,8 @@ import { Address } from "./address";
 
 
 export class Customer{
+    message!: string;
+    status!: number;
     filter(arg0: (u: any) => boolean): Customer {
       throw new Error('Method not implemented.');
     }

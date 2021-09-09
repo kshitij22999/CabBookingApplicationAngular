@@ -10,24 +10,24 @@ import { CustomerService } from './customer.service';
 })
 export class CustomerListComponent implements OnInit {
 
-  customers!: Customer[];
+  customerlist!: Customer[];
   constructor(private customerservice:CustomerService,private router:Router) { }
 
   ngOnInit(): void {
     this.customerservice.viewCustomers().subscribe(
-      (data)=>{this.customers = data;console.log(this.customers);},
+      {
+        next: customerlist => {
+          this.customerlist = customerlist;
+        }
+      }
  
     )
   }
-  deleteCustomer(customer:Customer):void{
-    this.customerservice.deleteCustomer(customer)
-    .subscribe(data => {this.customers.filter(u => u!==customer)});
-  }
-  updateCustomer():void{
-    this.router.navigate(['customer-edit']);
+  editCustomer(customer : any) : void {
+    this.router.navigate(['/edit']);
   }
   insertCustomer():void{
-    this.router.navigate(['customer-add']);
+    this.router.navigate(['/add']);
   }
   
   

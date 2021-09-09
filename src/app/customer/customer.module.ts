@@ -30,7 +30,8 @@ import { RouterModule } from '@angular/router';
     CustomerListComponent,
     CustomerAddComponent,
     CustomerEditComponent,
-    CustomerDetailsComponent
+    CustomerDetailsComponent,
+    CustomerBookingComponent
   ],
 })
 export class CustomerModule { }
