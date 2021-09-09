@@ -7,12 +7,6 @@ import { RegisterComponent } from './register/register.component';
 const routes: Routes = [
   {path : 'login' , component : LoginComponent},
   {path : 'logout' , component : LogoutComponent},
-<<<<<<< HEAD
-  {path : 'register' , component : RegisterComponent}
-];
-
-
-=======
   {path : 'register' , component : RegisterComponent},
   {
     path : 'tripbooking' , 
@@ -20,7 +14,7 @@ const routes: Routes = [
   import('./TripBooking/tripbooking-routing.module').then(m=>m.TripbookingRoutingModule)
 },
   {
-    path : 'driver' , 
+    path : 'drivers' , 
     loadChildren:()=>
   import('./driver/driver-routing.module').then(m=>m.DriverRoutingModule)
   },
@@ -36,7 +30,6 @@ const routes: Routes = [
   }
 
 ];
->>>>>>> 69df1dd6e6a40b4a42bb136cf224645329e3b6a0
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
