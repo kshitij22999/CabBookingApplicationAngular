@@ -11,6 +11,7 @@ import { DriverService } from './driver.service';
 export class DriverListComponent implements OnInit {
 
   driverlist!: Driver[];
+  driver!: Driver;
 
   constructor(private driverService: DriverService,
     private router : Router) {
@@ -26,7 +27,14 @@ export class DriverListComponent implements OnInit {
       })
   }
 
-  editDriver(driver: any)  : void {
+  deleteDriver(driver: Driver): void {
+    this.driverService.deleteDriver(driver.id).subscribe(data => {
+      console.log("driver deleted")
+      this.driver = this.driver.filter(u => u !== driver);
+    })
+  }
+
+  editDriver(driver: Driver)  : void {
     this.router.navigate(['/edit']);
   }
 
