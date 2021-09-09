@@ -20,7 +20,7 @@ export class CabListComponent implements OnInit {
     this.cabService.getAllCabs().subscribe
       ({
         next: cablist => {
-          this.cablist = cablist;
+          // this.cablist = cablist;
         }
       })
   }
