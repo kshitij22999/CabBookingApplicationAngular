@@ -12,3 +12,4 @@ export class Cab{
     enum carType{
         Alto, Etios, Indigo, Santro, Sedan, SwiftDzire
     }
+    

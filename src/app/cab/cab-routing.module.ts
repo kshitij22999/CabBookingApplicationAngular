@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { Driver } from '../driver/driver';
 import { CabAddComponent } from './cab-add.component';
 import { CabDetailsComponent } from './cab-details.component';
 import { CabEditComponent } from './cab-edit.component';
@@ -18,5 +19,6 @@ const routes: Routes = [
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
   })
-  export class DriverRoutingModule { }
+  export class CabRoutingModule { }
+
   
