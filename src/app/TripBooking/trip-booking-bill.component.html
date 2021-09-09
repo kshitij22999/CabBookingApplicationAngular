@@ -1,1 +1,79 @@
-<p>trip-booking-bill works!</p>
+<div class="card">
+    <div class="card-header">
+      {{pageTitle}}
+    </div>
+  
+    <div class="card-body"
+         *ngIf="tripbooking">
+  
+      <div class="row">
+  
+        <div class="col-md-8">
+          <div class="row">
+            <div class="col-md-3">ID:</div>
+            <div class="col-md-6">{{tripbooking.id}}</div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">Customer:</div>
+            <div class="col-md-6">{{tripbooking.customer}}</div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">Cab:</div>
+            <div class="col-md-6">{{tripbooking.cab}}</div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">Driver:</div>
+            <div class="col-md-6">{{tripbooking.driver}}</div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">From Location:</div>
+            <div class="col-md-6">{{tripbooking.fromLocation}}</div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">To Location:</div>
+            <div class="col-md-6">{{tripbooking.toLocation}}</div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">Status:</div>
+            <div class="col-md-6">{{tripbooking.status}}</div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">Distance(km):</div>
+            <div class="col-md-6">{{tripbooking.distanceInKm}}</div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">Frome Date Time:</div>
+            <div class="col-md-6">{{tripbooking.fromDateTime}}</div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">To Date Time:</div>
+            <div class="col-md-6">{{tripbooking.toDateTime}}</div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">Bill:</div>
+            <div class="col-md-6">{{tripbooking.bill}}</div>
+          </div>
+
+        </div>
+  
+        
+      </div>
+  
+      <div class="row mt-4">
+        <div class="col-md-4">
+          <button class="btn btn-outline-secondary mr-3"
+                  style="width:80px"
+                  [routerLink]="['']">
+            <i class="fa fa-chevron-left"></i> Back
+          </button>
+          <button class="btn btn-outline-primary"
+                  style="width:80px"
+                  [routerLink]="[tripbooking.id,'edit']">
+            Edit
+          </button>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+

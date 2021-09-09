@@ -1,1 +1,32 @@
-<p>trip-booking-edit works!</p>
+<div class="col-md-6 user-container" >
+    <h2 class="text-center">Edit Tripbooking</h2>
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+      <div>
+        <h2  formControlName="id" name="id" class="form-control" id="id">{{tripbooking.id}}</h2>
+      </div>  
+      <div class="form-group">
+        <label for="fromLocation">From Location :</label>
+        <input type="text" formControlName="fromLocation" placeholder="From Location" 
+        name="fromLocation" class="form-control" id="fromLocation">
+      </div>
+  
+      <div class="form-group">
+        <label for="toLocation">To Location :</label>
+        <input formControlName="toLocation" placeholder="To Location" 
+        name="toLocation" class="form-control" id="toLocation">
+      </div>
+  
+      <div class="form-group">
+        <label for="cabType">Cab Type :</label>
+        <select name="carType" id="carType" class="form-control" formControlName="cabType">
+          <option value="volvo">Volvo</option>
+          <option value="saab">Saab</option>
+          <option value="mercedes">Mercedes</option>
+          <option value="audi">Audi</option>
+        </select>
+      </div>
+  
+      <button class="btn btn-success">Update</button>
+    </form>
+  </div>
+

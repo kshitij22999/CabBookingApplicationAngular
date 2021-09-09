@@ -13,9 +13,9 @@ export class CustomerEditComponent implements OnInit {
   customer!:Customer;
   editForm!:FormGroup;
   id!:number;
-  submitted = false;
+  submitted=false;
 
-  constructor(private formBuilder: FormBuilder,private customerservice:CustomerService,private router: Router) { }
+  constructor(private formBuilder: FormBuilder,private customerservice:CustomerService,private route: Router) { }
 
   ngOnInit(): void {
     this.editForm = this.formBuilder.group({
@@ -30,6 +30,7 @@ export class CustomerEditComponent implements OnInit {
       tripBooking:this.customer.tripBooking,
       accountStatus:this.customer.accountStatus
     })
+    this.customer=new Customer();
     this.customerservice.viewCustomer(this.id)
     .subscribe(data => {this.editForm.setValue(data);console.log(this.customer);
     });
@@ -38,7 +39,7 @@ export class CustomerEditComponent implements OnInit {
 updateCustomer() {
   console.log(this.editForm.value +"from onSubmit of edit customer component")
   this.customerservice.updateCustomer(this.editForm.value).subscribe(
-      data => {console.log(data);this.router.navigate(['customers'])},
+      data => {console.log(data);this.route.navigate(['customers'])},
       (err)=>{console.log(err)}
        
     )}

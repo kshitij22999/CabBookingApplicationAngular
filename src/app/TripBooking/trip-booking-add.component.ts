@@ -18,7 +18,7 @@ export class TripBookingAddComponent implements OnInit {
 
   createTripBooking(form1: any):void{
     console.log(form1.value)
-    this.tripbookingservice.createTripBooking(this.tripBooking).
+    this.tripbookingservice.createTripBooking(form1.value).
     subscribe( data =>{
       console.log(data);
     })

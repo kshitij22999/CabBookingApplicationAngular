@@ -8,7 +8,7 @@ import { TripBookingService } from './tripbooking.service';
   styleUrls: ['./trip-booking-list.component.css']
 })
 export class TripBookingListComponent implements OnInit {
-  tripbookinglst:TripBooking[]=[];
+  tripbookinglst!:TripBooking[];
 
 
   
@@ -16,13 +16,17 @@ export class TripBookingListComponent implements OnInit {
   constructor(private tripbookingservice:TripBookingService) { }
 
   ngOnInit(): void {
-    this.tripbookingservice.getAllTrips().subscribe({
-      next: tripbookinglst =>{
+    this.tripbookingservice.getAllTrips().subscribe(
+       tripbookinglst =>{
         this.tripbookinglst = tripbookinglst;
+        console.log(this.tripbookinglst);
       }
-    })
+    )
   }
 
+  delete(id:number):void{
+    this.tripbookingservice.deleteTrip(id);
+  }
  
 
 }

@@ -6,6 +6,8 @@ import { CustomerEditComponent } from './customer-edit.component';
 import { CustomerAddComponent } from './customer-add.component';
 import { CustomerBookingComponent } from './customer-booking.component';
 import { FormsModule,  ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -20,10 +22,15 @@ import { FormsModule,  ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    RouterModule
   ],
   exports:[
-
-  ]
+    CustomerListComponent,
+    CustomerAddComponent,
+    CustomerEditComponent,
+    CustomerDetailsComponent
+  ],
 })
 export class CustomerModule { }

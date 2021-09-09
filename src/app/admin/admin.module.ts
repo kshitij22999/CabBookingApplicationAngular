@@ -6,6 +6,8 @@ import { AdminEditComponent } from './admin-edit.component';
 import { AdminAddComponent } from './admin-add.component';
 import { AdminMenuComponent } from './admin-menu.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -20,7 +22,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
-  ]
+    ReactiveFormsModule,
+    HttpClientModule,
+    RouterModule
+  ],
+  exports:[
+    AdminAddComponent,
+    AdminDetailsComponent,
+    AdminListComponent,
+    AdminEditComponent,
+    AdminMenuComponent
+  ],
 })
+
 export class AdminModule { }
