@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthenticationService } from './authentication.service';
+import { AuthenticationService } from '../service/authentication.service';
+
 
 export class JwtResponse{
 
@@ -34,8 +35,16 @@ export class LoginComponent implements OnInit {
         /* this.response=data.jwtToken;
         console.log("Rseponse" ,this.response,"response ") */
         //this.setValues(data);
-        this.router.navigate([''])
-        this.invalidLogin = false
+        if(sessionStorage.getItem('role')==='Admin'){
+          this.router.navigate(['admin']);
+        }
+        else if(sessionStorage.getItem('role')==='Customer'){
+          this.router.navigate(['customer']);
+        }else{
+          this.router.navigate(['driver']);
+        }
+        
+        this.invalidLogin = false;
       },
       error => {
         this.invalidLogin = true

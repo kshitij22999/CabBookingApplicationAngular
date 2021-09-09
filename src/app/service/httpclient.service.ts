@@ -1,13 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Admin } from '../admin/admin';
+import { Customer } from '../customer/customer';
+import { Driver } from '../driver/driver';
 
-export class Employee{
-  public id:string;
-    public name:string;
-    public designation:string;
-    public salary:string;
-  
-}
 
 
 
@@ -15,7 +11,7 @@ export class Employee{
   providedIn: 'root'
 })
 export class HttpClientService {
-  private baseUrl='http://localhost:9595/project/rest';
+  private baseUrl='http://localhost:9191/project/rest/api';
   constructor(
     private httpClient:HttpClient
   ) { 
@@ -32,18 +28,20 @@ export class HttpClientService {
    */  
     const headers = new HttpHeaders({ Authorization: 'Bearer ' + sessionStorage.getItem('token') });
   
-   return this.httpClient.get<Employee[]>(`${this.baseUrl}/employees`,{headers});
+   //return this.httpClient.get<Employee[]>(`${this.baseUrl}/employees`,{headers});
   }
 
-  public deleteEmployee(employee) {
-    
-    return this.httpClient.delete<Employee>(`${this.baseUrl}/employees/${employee.id}`,employee);
+ 
+  public createAdmin(admin:Admin){
+    return this.httpClient.post<Admin>(`http://localhost:9191/project/api/admin/register`,admin);
   }
 
-  public createEmployee(employee) {
-    /* 
-    const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
-   */
-       return this.httpClient.post<Employee>(`${this.baseUrl}/employees`,employee);
+  public createCustomer(customer:Customer){
+    return this.httpClient.post<Customer>(`${this.baseUrl}/customers/register`,customer);
   }
+
+  public createDriver(driver:Driver){
+    return this.httpClient.post<Driver>(`${this.baseUrl}/drivers/register`,driver);
+  }
+  
 }
