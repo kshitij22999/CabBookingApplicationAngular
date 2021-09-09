@@ -1,16 +1,19 @@
-<p>cab-details works!</p>
-<h2>Cab Details</h2>
-
-<hr/>
-<div *ngIf="cab">
-    
-    <div>
-        <label><b>Car Type:</b></label>{{cab.carType}}
+<div class="card">
+    <div class="card-header">
+      <h3>Cab Details</h3>
     </div>
-    <div>
-        <label><b>Per Km Rate:</b></label>{{cab.perKmRate}}
+  
+    <div class="card-body" *ngIf="cab">
+  
+      <div>
+        <label><b>carType:</b></label>{{cab.carType}}
+      </div>
+      
+      <div>
+        <label><b>perKmRate:</b></label>{{cab.perKmRate}}
+      </div>
+      
+  
+      <button (click)="back()" class="btn btn-primary">Back to List</button>
+  
     </div>
-   
-</div>
-<p></p>
-<button (click)="list()" class="btn btn-primary">Back </button>

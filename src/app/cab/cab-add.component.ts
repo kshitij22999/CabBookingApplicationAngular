@@ -35,5 +35,3 @@ onSubmit() {
     });
 }
 }
-export class NgbdDropdownBasic {
-}

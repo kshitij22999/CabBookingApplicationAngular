@@ -16,20 +16,23 @@ export class CabDetailsComponent implements OnInit {
   editForm!:FormGroup;
   cabId:number=0;
  
-constructor(private _ActivatedRoute:ActivatedRoute,private formBuilder: FormBuilder,private router: Router, private cabservice: CabService) { }
- 
+  constructor(private cabService  :CabService,
+    private router : ActivatedRoute,
+    private route : Router) { }
 
-ngOnInit() {
-  this.editForm = this.formBuilder.group({
-    id:[''],     
-    carType:['',Validators.required],
-   
-    perKmRate:['',Validators.required],
-    
-  })
-}
-viewCab():void{
-  this.router.navigate(['cab-edit']);
+    ngOnInit(): void {
+
+      this.cab= new Cab();
+      this.cabId = this.router.snapshot.params['cabId'];  
+  
+      this.cabService.getAllCabs().subscribe(data =>{
+        console.log(data)
+        this.cab=data;
+      }, error => console.log(error));
+      
+    }
+back(){
+  this.route.navigate(['list']);
 }
   
 }

@@ -36,15 +36,7 @@ export class CabEditComponent implements OnInit {
 }
 onSubmit(){
   this.cabService.updateCab(this.editForm.value)
-  .subscribe(data => {
-    if(data.status === 200) {
-      alert('Driver updated successfully.');
-    this.router.navigate(['driverlist']);
-   }
-   else{
-     alert(data.message);
-   }
-  },
+  .subscribe(data => {},
   error => {
     alert(error);
   });
