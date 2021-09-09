@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-<<<<<<< HEAD
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { RegisterComponent } from './register/register.component';
@@ -8,12 +7,29 @@ import { RegisterComponent } from './register/register.component';
 const routes: Routes = [
   {path : 'login' , component : LoginComponent},
   {path : 'logout' , component : LogoutComponent},
-  {path : 'register' , component : RegisterComponent}
-];
-=======
+  {path : 'register' , component : RegisterComponent},
+  {
+    path : 'tripbooking' , 
+  loadChildren:()=>
+  import('./TripBooking/tripbooking-routing.module').then(m=>m.TripbookingRoutingModule)
+},
+  {
+    path : 'driver' , 
+    loadChildren:()=>
+  import('./driver/driver-routing.module').then(m=>m.DriverRoutingModule)
+  },
+  {
+    path : 'customer' , 
+    loadChildren:()=>
+  import('./customer/customer-routing.module').then(m=>m.CustomerRoutingModule)
+  },
+  {
+    path : 'cab' , 
+    loadChildren:()=>
+  import('./cab/cab-routing.module').then(m=>m.CabRoutingModule)
+  }
 
-const routes: Routes = [];
->>>>>>> 36a0e293d3dbcb5e7c3509b80ab35a3227ff7976
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
