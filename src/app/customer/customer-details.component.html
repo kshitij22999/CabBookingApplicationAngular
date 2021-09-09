@@ -1,28 +1,35 @@
 <p>customer-details works!</p>
-<div class="col-md-6 user-container">
-    <h2 style="margin: auto"> Customer Details</h2>
-    <button class="btn btn-success" style="width:100px" (click)="viewCustomer()">View Customer</button>
-    <table class="table table-striped">
-      <thead>
-      <tr>
-        <th class="hidden">Id</th>
-        <th>UserName</th>
-        <th>Role</th>
-        <th class="hidden">Password</th>
-        <th>CustomerName</th>
-        <th>MobileNumber</th>
-        <th>EmailId</th>
-        <th>Address</th>
-        <th>AccountStatus</th>
-        <th>TripBooking</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let  customers">
-        <td ><button (click)="viewCustomer()" class="btn-btn-info" >View Customer</button></td>
-        
-        
-      </tr>
-      </tbody>
-    </table>
+<div class="card">
+  <div class="card-header">
+    <h3>Customer Details</h3>
+  </div>
+  <div class="card-body" *ngIf="customer">
+    <div>
+      <label><b>Id:</b></label>{{customer.id}}
+    </div>
+    <div>
+      <label><b>UserName:</b></label>{{customer.username}}
+    </div>
+    <div>
+      <label><b>Role:</b></label>{{customer.role}}
+    </div>
+    <div>
+      <label><b>CustomerName:</b></label>{{customer.customerName}}
+    </div>
+    <div>
+      <label><b>MobileNumber:</b></label>{{customer.mobileNumber}}
+    </div>
+    <div>
+      <label><b>EmailId:</b></label>{{customer.email}}
+    </div>
+    <div>
+      <label><b>Address:</b></label>{{customer.address.addr}},{{customer.address.city}},{{customer.address.state}},{{customer.address.pincode}}
+    </div>
+    <div>
+      <label><b>AccountStatus:</b></label>{{customer.accountStatus}}
+    </div>
+    <div>
+      <label><b>TripBooking:</b></label>{{customer.tripBooking}}
+    </div>
+    <button (click)="back()" class="btn-btn-primary" >Back to Customer List</button>
   </div>
