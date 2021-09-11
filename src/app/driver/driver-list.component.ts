@@ -37,7 +37,7 @@ handleSuccessfulResponse(response: Driver[])
   }
 
   editDriver(driver: Driver)  : void {
-    this.router.navigate(['/edit']);
+    this.router.navigate(['edit']);
   }
 
 
