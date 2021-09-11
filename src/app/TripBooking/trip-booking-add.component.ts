@@ -41,7 +41,7 @@ export class TripBookingAddComponent implements OnInit {
 
   onSubmit(){
     this.addForm.value.customer=this.customer;
-    this.tripbookingservice.createTripBooking(this.addForm.value).
+    this.tripbookingservice.createTripBooking(this.customer.id,this.addForm.value).
     subscribe( data =>{
       this.tripBooking=data;
       console.log(data);

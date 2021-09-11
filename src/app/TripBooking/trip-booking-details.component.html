@@ -15,17 +15,17 @@
           <div class="row">
             
             <div class="col-md-3">Customer:</div>
-            <div class="col-md-6">{{tripbooking.customer.customerName}}</div>
+            <div class="col-md-6">{{tripbooking.customer.username}}</div>
           </div>
           <div class="row">
             <div class="col-md-3">Cab:</div>
-            <div class="col-md-6" *ngIf='tripbooking.cab==null; else template1'>null</div> 
+            <div class="col-md-6" *ngIf='tripbooking.cab==null; else template1'>Not allocated</div> 
             <ng-template #template1><div class="col-md-6">{{tripbooking.cab.carType}}</div></ng-template>
           </div>
           <div class="row">
             <div class="col-md-3">Driver:</div>
-            <div class="col-md-6" *ngIf='tripbooking.cab==null; else template1'>null</div> 
-            <ng-template #template1><div>{{tripbooking.cab.carType}}</div></ng-template>
+            <div class="col-md-6" *ngIf='tripbooking.cab==null; else template2'>Not allocated</div> 
+            <ng-template #template2><div class="col-md-6">{{tripbooking.driver.driverName}}</div></ng-template>
           </div>
           <div class="row">
             <div class="col-md-3">From Location:</div>

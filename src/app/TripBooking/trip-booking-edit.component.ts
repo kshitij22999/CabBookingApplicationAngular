@@ -33,10 +33,10 @@ export class TripBookingEditComponent implements OnInit {
     this.tripservice.updateTrip(this.editForm.value).subscribe((data)=>{
         alert('Data updated successfully');
         console.log(data);
-        this.router.navigate(['tripbooking','triplist']);
+        
 
     });
-    
+    this.router.navigate(['tripbooking','triplist']);
   }
 
 }

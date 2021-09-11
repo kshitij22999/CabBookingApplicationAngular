@@ -4,6 +4,7 @@ import {HttpClient} from '@angular/common/http'
 import { Driver } from "../driver/driver";
 import { DriverService } from "../driver/driver.service";
 import { Customer } from "../customer/customer";
+import { Observable } from "rxjs";
 
 @Injectable({
     providedIn:'root'
@@ -13,8 +14,8 @@ export class TripBookingService{
     constructor(private httpclient:HttpClient,private driverservice:DriverService){}
 
 
-    public createTripBooking(tripbooking:TripBooking){
-        return this.httpclient.post<TripBooking>(`${this.baseUrl}/tripbookings`,tripbooking);
+    public createTripBooking(id:number,tripbooking:TripBooking){
+        return this.httpclient.post<TripBooking>(`${this.baseUrl}/customers/book/${id}`,tripbooking);
     }
 
     public getAllTrips(){
@@ -30,7 +31,7 @@ export class TripBookingService{
         return this.httpclient.put<TripBooking>(`${this.baseUrl}/drivers/accept/${id}`,driver);
     }
 
-    public getTripById(id:number){
+    public getTripById(id:number):Observable<TripBooking>{
         return this.httpclient.get<TripBooking>(`${this.baseUrl}/tripbookings/${id}`);
     }
 
@@ -44,7 +45,7 @@ export class TripBookingService{
     }
 
     public endTrip(id:number){
-        return this.httpclient.get<TripBooking>(`${this.baseUrl}/drivers/endtrip/${id}`);
+        return this.httpclient.patch<TripBooking>(`${this.baseUrl}/drivers/endtrip/${id}`);
     }
 
     public getCustomerByUsername(username:string){
