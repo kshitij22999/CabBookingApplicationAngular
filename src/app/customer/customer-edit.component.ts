@@ -13,7 +13,7 @@ export class CustomerEditComponent implements OnInit {
   customer!:Customer;
   editForm!:FormGroup;
   
-  constructor(private formBuilder: FormBuilder,private customerservice:CustomerService,private route: Router) { }
+  constructor(private formBuilder: FormBuilder,private customerservice:CustomerService,private router: Router) { }
 
   ngOnInit(): void {
     this.editForm = this.formBuilder.group({
@@ -35,7 +35,7 @@ export class CustomerEditComponent implements OnInit {
     .subscribe(data => {
       if(data.status === 200) {
         alert('Customer updated successfully.');
-      this.route.navigate(['customerlist']);
+      this.router.navigate(['customerlist']);
      }
      else{
        alert(data.message);
@@ -45,7 +45,9 @@ export class CustomerEditComponent implements OnInit {
       alert(error);
     });
   } 
-
+  onBack():void{
+    this.router.navigate(['/customers/list']);
+  }
 
 
 }

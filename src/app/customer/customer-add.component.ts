@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Customer } from './customer';
 import { CustomerService } from './customer.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-customer-add',
@@ -13,7 +14,7 @@ export class CustomerAddComponent implements OnInit {
   customer!:Customer;
   addForm!: FormGroup;
   
-  constructor(private formBuilder: FormBuilder,private customerservice:CustomerService) { }
+  constructor(private formBuilder: FormBuilder,private customerservice:CustomerService,private router:Router) { }
 
   ngOnInit() {
     this.addForm = this.formBuilder.group({
@@ -37,5 +38,8 @@ onSubmit() {
     data=>{this.customer=data},
     err=>console.log(err)
   )}
+  onBack():void{
+    this.router.navigate(['/customers/list']);
+  }
 
 }

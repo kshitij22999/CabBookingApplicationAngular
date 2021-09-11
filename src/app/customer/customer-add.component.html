@@ -41,6 +41,14 @@
         <label for="tripBooking">Account Status</label>
         <input type="text" formControlName="tripBooking" placeholder="tripBooking" name="tripBooking" class="form-control" id="tripBooking" >
       </div>
-      <button class="btn btn-success">Add</button>
+      <table>
+        <tbody>
+          <tr>
+            <td><button class="btn btn-success" style="margin-right:20px;">Add</button></td>
+            <td><button class="btn-btn-success" (click)="onBack()">Back</button></td>
+          </tr>
+        </tbody>
+      </table>
+      
     </form>
   </div>
