@@ -3,6 +3,7 @@ import { TripBooking } from "./tripbooking";
 import {HttpClient} from '@angular/common/http'
 import { Driver } from "../driver/driver";
 import { DriverService } from "../driver/driver.service";
+import { Customer } from "../customer/customer";
 
 @Injectable({
     providedIn:'root'
@@ -25,9 +26,7 @@ export class TripBookingService{
         return this.httpclient.get<TripBooking[]>(`${this.baseUrl}/tripbookings/free`);
     }
 
-    public acceptTrip(id:number){
-        let username=sessionStorage.getItem('username');
-        let driver= this.driverservice.getDriverByUsername(username||'');
+    public acceptTrip(id:number,driver:Driver){
         return this.httpclient.put<TripBooking>(`${this.baseUrl}/drivers/accept/${id}`,driver);
     }
 
@@ -48,4 +47,7 @@ export class TripBookingService{
         return this.httpclient.get<TripBooking>(`${this.baseUrl}/drivers/endtrip/${id}`);
     }
 
+    public getCustomerByUsername(username:string){
+        return this.httpclient.get<Customer>(`${this.baseUrl}/customers/username/${username}`);
+    }
 }

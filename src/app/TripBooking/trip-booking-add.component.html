@@ -16,17 +16,16 @@
          class="form-control"
           id="toLocation">
       </div>
-    
+
       <div class="form-group">
-        <label for="CarType">Car Type</label>
-  
-        <select name="cars" id="cars"  formControlName="carType">
-          <option value="volvo">Volvo</option>
-          <option value="saab">Saab</option>
-          <option value="mercedes">Mercedes</option>
-          <option value="audi">Audi</option>
-        </select>
+        <label for="toLocation">Distance In KM:</label>
+        <input formControlName="distanceInKm"
+        placeholder="Distance"
+         name="distanceInKm" 
+         class="form-control"
+          id="distanceInKm">
       </div>
+    
     
       <button type="submit">Submit</button>
     </form>

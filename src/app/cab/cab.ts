@@ -9,7 +9,7 @@ export class Cab{
         throw new Error('Method not implemented.');
 
     }  }
-    enum carType{
+export enum carType{
         Alto, Etios, Indigo, Santro, Sedan, SwiftDzire
     }
     

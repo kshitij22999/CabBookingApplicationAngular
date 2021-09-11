@@ -56,6 +56,7 @@ private baseUrl='http://localhost:9191/project'
 
      authenticate(username:string, password:string):Observable<any>{
        this.loadUser(username).subscribe((data)=>{
+         console.log(data);
          this.role= data.authorities[0].authority;
         });
        console.log('in authentication service authenticate method',username);

@@ -5,8 +5,9 @@
 
     <div class="container">
         <div class="table-responsive table-striped">
-            <button class="btn btn-danger" style="width:100px" 
-            [routerLink] = "['/add']"> Add Driver</button>
+            <a [routerLink] = "['/drivers/add']"> 
+            <button class="btn btn-danger" style="width:100px" >
+            Add Driver</button></a>
             <table class="table mb-3">
                 <thead>
                     <tr>
@@ -29,10 +30,11 @@
                         <td>{{driver.rating}}</td>
                         <td>{{driver.cab.carType}}</td>
                         <td>
-                            <button class="btn btn-success" (click)= "editDriver(driver)" style="margin-left: 20px;">
-                                Edit
-                            </button>
-                        </td>
+                            <a  [routerLink] = "['/drivers/edit']">
+                            <button class="btn btn-success"
+                                    [routerLink]="[driver.id, 'edit']">
+                              Edit
+                            </button></a>
                         <td>
                             <button class="btn btn-danger" (click)= "deleteDriver(driver)" style="margin-left: 20px;">
                                 Delete

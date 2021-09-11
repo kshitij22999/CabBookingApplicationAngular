@@ -39,9 +39,9 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['admin']);
         }
         else if(sessionStorage.getItem('role')==='Customer'){
-          this.router.navigate(['customer']);
+          this.router.navigate(['tripbooking','add']);
         }else{
-          this.router.navigate(['drivers']);
+          this.router.navigate(['tripbooking','trips']);
         }
         
         this.invalidLogin = false;
