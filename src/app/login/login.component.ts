@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
         else if(sessionStorage.getItem('role')==='Customer'){
           this.router.navigate(['customer']);
         }else{
-          this.router.navigate(['driver']);
+          this.router.navigate(['drivers']);
         }
         
         this.invalidLogin = false;
