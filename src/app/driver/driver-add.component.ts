@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Cab, carType } from '../cab/cab';
 import { Address } from '../customer/address';
+import { Role } from '../register/role';
 import { TripBooking } from '../TripBooking/tripbooking';
 import { Driver } from './driver';
 import { DriverService } from './driver.service';
@@ -13,10 +14,16 @@ import { DriverService } from './driver.service';
   styleUrls: ['./driver-add.component.css']
 })
 export class DriverAddComponent implements OnInit {
-  
+
+  roles : Role = {
+    id : 2,
+    name : 'DRIVER',
+    description : 'DRIVER'
+  }
+
   cab : Cab = {
     cabId: 0,
-    carType: carType.Indigo,
+    carType : carType.Indigo,
     perKmRate: 0,
     filter: function (): Cab {
       throw new Error('Function not implemented.');
@@ -40,18 +47,18 @@ export class DriverAddComponent implements OnInit {
     cab: this.cab,
     driverName: '',
     rating: '',
-    role: '',
     lisenceNo: '',
     tripBookings: new TripBooking,
     mobileNumber: '',
-    address : this.address,
+    address: this.address,
     email: '',
     vaccinationStatus: 0,
     availabilityStaus: 0,
     accountStatus: 0,
     filter: function (arg0: (u: any) => boolean): Driver {
       throw new Error('Function not implemented.');
-    }
+    },
+    roles: this.roles
   }
   addForm! : FormGroup;
 
@@ -64,7 +71,7 @@ export class DriverAddComponent implements OnInit {
            
       username:['',Validators.required],
       password:['',Validators.required],
-      roles: ['',Validators.required],
+      roles: this.roles,
       id:this.driver.id,
       mobileNumber:this.driver.mobileNumber,
       lisenceNo : this.driver.lisenceNo,
@@ -75,7 +82,7 @@ export class DriverAddComponent implements OnInit {
       address:this.driver.address,
       tripBooking:this.driver.tripBookings,
       accountStatus:this.driver.accountStatus,
-      cab : this.cab.carType
+      cab : this.cab
       
  })
   
@@ -84,7 +91,8 @@ export class DriverAddComponent implements OnInit {
   onSubmit() {
     console.log(this.addForm.value +"from onSubmit of add driver component")
     this.driverService.addDriver(this.addForm.value).subscribe(
-      (data: Driver)=>{this.driver=data},
+      (data)=>{this.driver=data ;
+      console.log(data) },
       (err: string)=>console.log(err)
     )}
   

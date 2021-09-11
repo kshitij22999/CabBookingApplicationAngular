@@ -14,7 +14,7 @@ export class DriverService {
     constructor(private httpclient: HttpClient) { }
 
     public addDriver(driver: Driver) {
-        return this.httpclient.post<Driver>(`${this.baseUrl}/drivers`, driver);
+        return this.httpclient.post<Driver>(`${this.baseUrl}/drivers/register`, driver);
     }
 
     public deleteDriver(id : number) {

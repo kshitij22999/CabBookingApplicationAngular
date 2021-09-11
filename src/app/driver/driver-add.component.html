@@ -1,48 +1,63 @@
-
 <div class="col-md-6 user-container">
-    <h2 class="text-center">Add Driver</h2>
-    <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="username">Username:</label>
-        <input type="text" formControlName="username" placeholder="username" name="username" class="form-control" id="username">
-      </div>
-  
-      <div class="form-group">
-        <label for="password">Password:</label>
-        <input type="password" formControlName="password" placeholder="password" name="password" class="form-control" id="password">
-      </div>
-  
-      <div class="form-group">
-        <label for="driverName">Name :</label>
-        <input type="text" formControlName="driverName" placeholder="name" name="driverName" class="form-control" id="driverName">
-      </div>
-  
-      <div class="form-group">
-        <label for="lisenceNo">Lisence No:</label>
-        <input type="text" formControlName="lisenceNo" placeholder="lisence no" name="lisenceNo" class="form-control" id="lisenceNo">
-      </div>
-  
-      <div class="form-group">
-        <label for="rating">Rating :</label>
-        <input type="number" formControlName="rating" placeholder="rating" name="rating" class="form-control" id="rating">
-      </div>
-  
-      <div class="form-group">
-        <label for="cab">Cab :</label>
-        <input type="text" formControlName="cab" placeholder="cab" name="cab" class="form-control" id="cab">
-      </div>
+  <h2 class="text-center">Add Driver</h2>
+  <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input type="text" formControlName="username" placeholder="username" name="username" class="form-control"
+        id="username">
+    </div>
 
-      <table>
-        <tbody>
-          <tr>
-            <td><button  class = "btn btn-success" style="margin-right: 20px;" type="submit">Submit</button></td>
-            <td><button class="btn btn-success" (click) = "onBack()">Back</button></td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" formControlName="password" placeholder="password" name="password" class="form-control"
+        id="password">
+    </div>
+
+    <div class="form-group">
+      <label for="driverName">Name :</label>
+      <input type="text" formControlName="driverName" placeholder="name" name="driverName" class="form-control"
+        id="driverName">
+    </div>
+
+    <div class="form-group">
+      <label for="lisenceNo">Lisence No:</label>
+      <input type="text" formControlName="lisenceNo" placeholder="lisence no" name="lisenceNo" class="form-control"
+        id="lisenceNo">
+    </div>
+
+    <div class="form-group">
+      <label for="rating">Rating :</label>
+      <input type="number" formControlName="rating" placeholder="rating" name="rating" class="form-control" id="rating">
+    </div>
+
+    <div class="form-group">
+      <label for="cab">Cab :</label>
       
-            
-  
-    </form>
-  </div>
+      <select id="carType" class="form-control" [(ngModel)]='cab.carType' [ngModelOptions]="{standalone: true}">
+        <option value="Santro">Santro</option>
+        <option value="Indigo">Indigo</option>
+        <option value="Alto">Driver</option>
+        <option value="SwiftDzire">SwiftDzire</option>
+        <option value="Etios">Etios</option>
+        <option value="Sedan">Sedan</option>
+      </select>
+        <div>
+        <input type="number" [(ngModel)]='cab.perKmRate' [ngModelOptions]="{standalone: true}" placeholder="per km rate"
+          name="cab" class="form-control" id="cab">
+        </div>
+    </div>
 
+
+    <table>
+      <tbody>
+        <tr>
+          <td><button class="btn btn-success" style="margin-right: 20px;" type="submit">Submit</button></td>
+          <td><button class="btn btn-success" (click)="onBack()">Back</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+
+
+  </form>
+</div>
