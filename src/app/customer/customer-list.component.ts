@@ -29,7 +29,7 @@ export class CustomerListComponent implements OnInit {
       this.customer=this.customer.filter(u =>u!==customer);
     })
   }
-  editCustomer(customer : any) : void {
+  editCustomer(customer :Customer) : void {
     this.router.navigate(['/edit']);
   }
   

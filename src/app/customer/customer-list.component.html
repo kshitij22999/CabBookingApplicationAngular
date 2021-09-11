@@ -5,8 +5,8 @@
   </div>
   <div class="container">
     <div class="table-responsive table-striped">
-      <button class="btn btn-danger" style="width:100px"
-      (click)="insertCustomer()">Add Customer</button>
+      <a [routerLink] ="['/customers/add']">
+      <button class="btn btn-danger" style="width:100px">Add Customer</button></a>
       <table class="table table-striped">
         <thead>
           <tr>
@@ -35,7 +35,11 @@
             <td>{{customer.address.addr}},{{customer.address.city}},{{customer.address.state}},{{customer.address.pincode}}</td>
             <td>{{customer.accountStatus}}</td>
             <td>{{customer.tripBooking}}</td>
-            <td ><button class="btn-btn-success" (click)="editCustomer(customer)" style="margin-left: 20px;">Edit</button></td>
+            <td>
+              <a [routerLink]="['/customers/edit']">
+                <button class="btn-btn-success" [routerLink]="[customer.id,'edit']">Edit</button></a>
+            </td>
+            
             <td ><button class="btn-btn-danger" (click)="deleteCustomer(customer)" style="margin-left: 20px;">Delete</button></td>
           </tr>
         </tbody>
