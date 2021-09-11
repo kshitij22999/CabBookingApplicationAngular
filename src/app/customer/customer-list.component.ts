@@ -33,7 +33,7 @@ export class CustomerListComponent implements OnInit {
     this.router.navigate(['/edit']);
   }
   
-  
+  insertCustomer(){}
   
 
 }
