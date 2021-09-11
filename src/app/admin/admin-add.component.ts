@@ -37,4 +37,7 @@ export class AdminAddComponent implements OnInit {
   gotoList() {
     this.router.navigate(['/admin']);
   }
+  onBack() : void{
+    this.router.navigate(['/admin/list']);
+  }
 }
