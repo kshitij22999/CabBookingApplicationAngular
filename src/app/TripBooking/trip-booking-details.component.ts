@@ -13,17 +13,18 @@ export class TripBookingDetailsComponent implements OnInit {
 
   pageTitle!:number;
   tripbooking!:TripBooking;
+  id!:number;
   
   constructor(private tripbookingservice:TripBookingService,private route:ActivatedRoute
     ,private router:Router) { }
 
   ngOnInit(): void {
-    let id!:number;
+    
     this.route.params.subscribe(data=>{
-      id = data['id'];
-      console.log(id);
+      this.id = data['id'];
+      console.log(this.id);
     });
-    this.tripbookingservice.getTripById(+id).subscribe(data=>{
+    this.tripbookingservice.getTripById(+this.id).subscribe(data=>{
       this.pageTitle=data.id;
       console.log(data);
     this.tripbooking=data})

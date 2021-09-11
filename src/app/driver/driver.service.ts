@@ -34,6 +34,6 @@ export class DriverService {
     }
 
     public getDriverByUsername(username : string) : Observable<Driver> {
-        return this.httpclient.get<Driver>(`${this.baseUrl}/drivers/${username}`);
+        return this.httpclient.get<Driver>(`${this.baseUrl}/drivers/username/${username}`);
     }
 }

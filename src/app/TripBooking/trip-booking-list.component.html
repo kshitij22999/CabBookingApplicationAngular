@@ -23,7 +23,8 @@
               <td>
                 {{trip.id}}
               </td>
-              <td></td> 
+              <td *ngIf='trip.customer==null; else template'>null</td> 
+              <ng-template #template><td>{{trip.customer.username}}</td></ng-template>
               <td>{{ trip.fromLocation}}</td>
               <td>{{ trip.toLocation }}</td>
               <td>{{trip.status}}</td>

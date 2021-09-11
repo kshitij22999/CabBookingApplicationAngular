@@ -10,19 +10,22 @@
         <div class="col-md-8">
           <div class="row">
             <div class="col-md-3">ID:</div>
-            <div class="col-md-6">{{tripbooking.id}}</div>
+            <div class="col-md-6">{{this.id}}</div>
           </div>
           <div class="row">
+            
             <div class="col-md-3">Customer:</div>
-            <div class="col-md-6">{{tripbooking.customer}}</div>
+            <div class="col-md-6">{{tripbooking.customer.customerName}}</div>
           </div>
           <div class="row">
             <div class="col-md-3">Cab:</div>
-            <div class="col-md-6">{{tripbooking.cab}}</div>
+            <div class="col-md-6" *ngIf='tripbooking.cab==null; else template1'>null</div> 
+            <ng-template #template1><div class="col-md-6">{{tripbooking.cab.carType}}</div></ng-template>
           </div>
           <div class="row">
             <div class="col-md-3">Driver:</div>
-            <div class="col-md-6">{{tripbooking.driver}}</div>
+            <div class="col-md-6" *ngIf='tripbooking.cab==null; else template1'>null</div> 
+            <ng-template #template1><div>{{tripbooking.cab.carType}}</div></ng-template>
           </div>
           <div class="row">
             <div class="col-md-3">From Location:</div>
@@ -50,7 +53,7 @@
           </div>
           <div class="row">
             <div class="col-md-3">Bill:</div>
-            <div class="col-md-6">{{tripbooking.bill}}</div>
+            <div class="col-md-6">&#8377;{{tripbooking.bill}}</div>
           </div>
 
         </div>
