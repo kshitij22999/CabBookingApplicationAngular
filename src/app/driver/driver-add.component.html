@@ -1,49 +1,48 @@
 
 <div class="col-md-6 user-container">
     <h2 class="text-center">Add Driver</h2>
-    <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+    <form #form1="ngForm"  (ngSubmit)="addDriver(form1)">
       <div class="form-group">
         <label for="username">Username:</label>
-        <input type="text" formControlName="username" placeholder="username" name="username" class="form-control" id="username">
+        <input  [(ngModel)]="driver.username" placeholder="username" name="username" class="form-control" id="username">
       </div>
   
       <div class="form-group">
         <label for="password">Password:</label>
-        <input type="password" formControlName="password" placeholder="password" name="password" class="form-control" id="password">
+        <input [(ngModel)]="driver.password" placeholder="password" name="password" class="form-control" id="password">
       </div>
   
       <div class="form-group">
-        <label for="email">Email :</label>
-        <input type="email" placeholder="email" name="email" class="form-control" id="email">
+        <label for="driverName">Name :</label>
+        <input [(ngModel)]="driver.driverName" placeholder="name" name="driverName" class="form-control" id="driverName">
       </div>
   
       <div class="form-group">
         <label for="lisenceNo">Lisence No:</label>
-        <input formControlName="lisenceNo" placeholder="lisence no" name="lisenceNo" class="form-control" id="lisenceNo">
+        <input [(ngModel)]="driver.lisenceNo" placeholder="lisence no" name="lisenceNo" class="form-control" id="lisenceNo">
       </div>
   
       <div class="form-group">
         <label for="rating">Rating :</label>
-        <input type="number" formControlName="rating" placeholder="rating" name="rating" class="form-control" id="rating">
+        <input [(ngModel)]="driver.rating" placeholder="rating" name="rating" class="form-control" id="rating">
       </div>
   
       <div class="form-group">
         <label for="cab">Cab :</label>
-        <input type="text" formControlName="Cab" placeholder="cab" name="cab" class="form-control" id="cab">
+        <input [(ngModel)]="driver.cab.carType" placeholder="cab" name="cab" class="form-control" id="cab">
       </div>
-  
-      
-      
 
-      <table >
+      <table>
         <tbody>
-            <tr>
-            <td ><button class="btn btn-success" style="margin-right: 20px;">Add</button></td>
-            <td ><button class="btn btn-success" (click) = "onBack()">Back</button></td>
-            </tr>
+          <tr>
+            <td><button  class = "btn btn-success" style="margin-right: 20px;" type="submit">Submit</button></td>
+            <td><button class="btn btn-success" (click) = "onBack()">Back</button></td>
+          </tr>
         </tbody>
-
-    </table>
+      </table>
+      
+            
+  
     </form>
   </div>
 

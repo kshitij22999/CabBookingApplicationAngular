@@ -2,11 +2,11 @@ import { Cab } from "../cab/cab";
 import { TripBooking } from "../TripBooking/tripbooking";
 
 export class Driver{
-    message!: string;
-    status!: number;
     filter(arg0: (u: any) => boolean): Driver {
       throw new Error('Method not implemented.');
     }
+    message!: string;
+    status!: number;
 
     id! : number;
     username!:string;
