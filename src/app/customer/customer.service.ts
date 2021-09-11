@@ -9,7 +9,7 @@ import {Customer} from './customer'
 })
 export class CustomerService {
   [x : string]: any;
-  baseUrl:string = "http://localhost:9190/project/rest/api"
+  baseUrl:string = "http://localhost:9191/project/rest/api"
   constructor(private http:HttpClient) { }
  
   public insertCustomer(customer:Customer){

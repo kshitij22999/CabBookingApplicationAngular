@@ -4,7 +4,13 @@
     <h2>Admin List</h2>
     </div>
     <div class="panel-body">
+        
     <table class="table table-striped">
+        <a [routerLink] = "['/admin/add']"> 
+            <button class="btn btn-danger" style="width:100px" >
+            Add Admin</button></a>
+            <table class="table mb-3">
+        
     <thead>
     <tr>
     <th>UserName</th>
@@ -22,7 +28,11 @@
     <td>{{admin.mobileNo}}</td>
     <td>{{admin.address}}</td>
     <td><button (click)="deleteAdmin(admin.id)" class="btn btn-danger">Delete</button>
-    <td><button (click)="editAdmin(admin.id)" class="btn btn-info" style="margin-left:10px">Edit</button>
+    <td><a  [routerLink] = "['/admin/edit']">
+        <button class="btn btn-success"
+                [routerLink]="[admin.id, 'edit']">
+          Edit
+        </button></a>
     <td><button (click)="adminDetails(admin.id)" class="btn btn-info" style="margin-left:10px">Details</button>
     </td>
     </tr>
