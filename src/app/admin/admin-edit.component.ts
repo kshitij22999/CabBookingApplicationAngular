@@ -39,5 +39,8 @@ onSubmit() {
 gotoList() {
   this.router.navigate(['/admins']);
 }
+onBack() : void {
+  this.router.navigate(['/admin/list']);
+}
 }
 
