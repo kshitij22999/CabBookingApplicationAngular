@@ -1,35 +1,35 @@
 
 <div class="col-md-6 user-container">
     <h2 class="text-center">Add Driver</h2>
-    <form #form1="ngForm"  (ngSubmit)="addDriver(form1)">
+    <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="username">Username:</label>
-        <input  [(ngModel)]="driver.username" placeholder="username" name="username" class="form-control" id="username">
+        <input type="text" formControlName="username" placeholder="username" name="username" class="form-control" id="username">
       </div>
   
       <div class="form-group">
         <label for="password">Password:</label>
-        <input [(ngModel)]="driver.password" placeholder="password" name="password" class="form-control" id="password">
+        <input type="password" formControlName="password" placeholder="password" name="password" class="form-control" id="password">
       </div>
   
       <div class="form-group">
         <label for="driverName">Name :</label>
-        <input [(ngModel)]="driver.driverName" placeholder="name" name="driverName" class="form-control" id="driverName">
+        <input type="text" formControlName="driverName" placeholder="name" name="driverName" class="form-control" id="driverName">
       </div>
   
       <div class="form-group">
         <label for="lisenceNo">Lisence No:</label>
-        <input [(ngModel)]="driver.lisenceNo" placeholder="lisence no" name="lisenceNo" class="form-control" id="lisenceNo">
+        <input type="text" formControlName="lisenceNo" placeholder="lisence no" name="lisenceNo" class="form-control" id="lisenceNo">
       </div>
   
       <div class="form-group">
         <label for="rating">Rating :</label>
-        <input [(ngModel)]="driver.rating" placeholder="rating" name="rating" class="form-control" id="rating">
+        <input type="number" formControlName="rating" placeholder="rating" name="rating" class="form-control" id="rating">
       </div>
   
       <div class="form-group">
         <label for="cab">Cab :</label>
-        <input [(ngModel)]="driver.cab.carType" placeholder="cab" name="cab" class="form-control" id="cab">
+        <input type="text" formControlName="cab" placeholder="cab" name="cab" class="form-control" id="cab">
       </div>
 
       <table>

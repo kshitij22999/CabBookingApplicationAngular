@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Cab } from '../cab/cab';
+import { Cab, carType } from '../cab/cab';
+import { Address } from '../customer/address';
 import { TripBooking } from '../TripBooking/tripbooking';
 import { Driver } from './driver';
 import { DriverService } from './driver.service';
@@ -12,6 +13,22 @@ import { DriverService } from './driver.service';
   styleUrls: ['./driver-add.component.css']
 })
 export class DriverAddComponent implements OnInit {
+  
+  cab : Cab = {
+    cabId: 0,
+    carType: carType.Indigo,
+    perKmRate: 0,
+    filter: function (): Cab {
+      throw new Error('Function not implemented.');
+    }
+  }
+
+  address : Address = {
+    addr : '',
+    city : '',
+    state : '',
+    pincode : ''
+  }
 
   driver : Driver = {
     username: '',
@@ -20,14 +37,14 @@ export class DriverAddComponent implements OnInit {
 
     id: 0,
     password: '',
-    cab: new Cab,
+    cab: this.cab,
     driverName: '',
     rating: '',
     role: '',
-    lisenceNo: 0,
+    lisenceNo: '',
     tripBookings: new TripBooking,
-    mobileNo: 0,
-    address: '',
+    mobileNumber: '',
+    address : this.address,
     email: '',
     vaccinationStatus: 0,
     availabilityStaus: 0,
@@ -36,27 +53,40 @@ export class DriverAddComponent implements OnInit {
       throw new Error('Function not implemented.');
     }
   }
+  addForm! : FormGroup;
 
   constructor( private driverService : DriverService,
     private router :Router,
     private formBuilder : FormBuilder) { }
 
   ngOnInit() : void{
+    this.addForm = this.formBuilder.group({
+           
+      username:['',Validators.required],
+      password:['',Validators.required],
+      roles: ['',Validators.required],
+      id:this.driver.id,
+      mobileNumber:this.driver.mobileNumber,
+      lisenceNo : this.driver.lisenceNo,
+      driverName : this.driver.driverName,
+      rating : this.driver.rating,
+      email:this.driver.email,
+      customerName:this.driver.driverName,
+      address:this.driver.address,
+      tripBooking:this.driver.tripBookings,
+      accountStatus:this.driver.accountStatus,
+      cab : this.cab.carType
+      
+ })
   
   }
 
-  addDriver(form1 : any): void {
-    console.log("in add Driver",form1.value)
-    
-    
-    this.driverService.addDriver(form1.value)
-        .subscribe( data => {
-          console.log(data);
-          this.router.navigate(['/drivers/list'])
-          
-        });
-
-  };
+  onSubmit() {
+    console.log(this.addForm.value +"from onSubmit of add driver component")
+    this.driverService.addDriver(this.addForm.value).subscribe(
+      (data: Driver)=>{this.driver=data},
+      (err: string)=>console.log(err)
+    )}
   
   onBack() : void{
     this.router.navigate(['/drivers/list'])

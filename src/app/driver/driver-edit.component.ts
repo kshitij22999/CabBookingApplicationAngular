@@ -24,7 +24,7 @@ export class DriverEditComponent implements OnInit {
       password:['',Validators.required],
       role:['',Validators.required],
       id: this.driver.id,
-      mobileNumber:this.driver.mobileNo,
+      mobileNumber:this.driver.mobileNumber,
       email:this.driver.email,
       Name:this.driver.driverName,
       address:this.driver.address,

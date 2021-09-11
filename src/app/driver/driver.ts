@@ -1,4 +1,5 @@
 import { Cab } from "../cab/cab";
+import { Address } from "../customer/address";
 import { TripBooking } from "../TripBooking/tripbooking";
 
 export class Driver{
@@ -15,12 +16,12 @@ export class Driver{
     driverName! : string;
     rating! : string;
     role!:string;
-    lisenceNo! : number;
+    lisenceNo! : string;
     tripBookings! : TripBooking;
     vaccinationStatus! : VaccinationStatus;
     availabilityStaus! : AvailabilityStatus;
-    mobileNo! : number ;
-    address! : string;
+    mobileNumber! : string ;
+    address! : Address;
     email! : string;
     accountStatus!:LoginStatus;
 
