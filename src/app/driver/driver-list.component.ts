@@ -19,13 +19,15 @@ export class DriverListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.driverService.getAllDrivers().subscribe
-      ({
-        next: driverlist => {
-          this.driverlist = driverlist;
-        }
-      })
+    this.driverService.getAllDrivers().subscribe(
+      response =>this.handleSuccessfulResponse(response),
+     );
   }
+
+handleSuccessfulResponse(response: Driver[])
+{
+    this.driverlist=response;
+}
 
   deleteDriver(driver: Driver): void {
     this.driverService.deleteDriver(driver.id).subscribe(data => {
@@ -35,12 +37,9 @@ export class DriverListComponent implements OnInit {
   }
 
   editDriver(driver: Driver)  : void {
-    this.router.navigate(['/edit']);
+    this.router.navigate(['edit']);
   }
 
-  addDriver() : void  {
-    this.router.navigate(['/add']);
-  }
 
 
 }

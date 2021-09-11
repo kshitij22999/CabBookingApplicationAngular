@@ -42,4 +42,8 @@ export class DriverAddComponent implements OnInit {
         err=>console.log(err)
       )
     }
+
+  onBack() : void{
+    this.router.navigate(['/drivers/list']);
+  }
 }
