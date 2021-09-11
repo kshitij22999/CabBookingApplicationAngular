@@ -30,13 +30,6 @@ export class CustomerEditComponent implements OnInit {
     })
     
   }
-  deleteCustomer(customer: Customer): void {
-    this.customerservice.deleteCustomer(customer).subscribe(data => {
-      console.log("customer deleted")
-      this.customer = this.customer.filter(u => u !== customer);
-    })
-  }
-
   onSubmit(){
     this.customerservice.updateCustomer(this.editForm.value)
     .subscribe(data => {

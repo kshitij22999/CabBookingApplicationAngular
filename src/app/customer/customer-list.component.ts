@@ -11,24 +11,28 @@ import { CustomerService } from './customer.service';
 export class CustomerListComponent implements OnInit {
 
   customerlist!: Customer[];
+  customer!: Customer;
   constructor(private customerservice:CustomerService,private router:Router) { }
 
   ngOnInit(): void {
     this.customerservice.viewCustomers().subscribe(
-      {
-        next: customerlist => {
-          this.customerlist = customerlist;
-        }
-      }
- 
-    )
+      response =>this.handleSuccessfulResponse(response),
+    );
+  }
+  handleSuccessfulResponse(response:Customer[])
+  {
+    this.customerlist=response;
+  }
+  deleteCustomer(customer: Customer):void{
+    this.customerservice.deleteCustomer(customer).subscribe(data =>{
+      console.log("customer deleted")
+      this.customer=this.customer.filter(u =>u!==customer);
+    })
   }
   editCustomer(customer : any) : void {
     this.router.navigate(['/edit']);
   }
-  insertCustomer():void{
-    this.router.navigate(['/add']);
-  }
+  
   
   
 

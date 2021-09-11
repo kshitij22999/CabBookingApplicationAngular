@@ -10,7 +10,7 @@
       <table class="table table-striped">
         <thead>
           <tr>
-            <th class="hidden">Id</th>
+            <th style="text-align: center;">Id</th>
             <th>UserName</th>
             <th>Role</th>
             <th class="hidden">Password</th>
@@ -24,6 +24,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let customer of customerlist">
+            <td class="hidden"></td>
             <td>{{customer.id}}</td>
             <td>{{customer.username}}</td>
             <td>{{customer.role}}</td>
@@ -35,7 +36,10 @@
             <td>{{customer.accountStatus}}</td>
             <td>{{customer.tripBooking}}</td>
             <td ><button class="btn-btn-success" (click)="editCustomer(customer)" style="margin-left: 20px;">Edit</button></td>
+            <td ><button class="btn-btn-danger" (click)="deleteCustomer(customer)" style="margin-left: 20px;">Delete</button></td>
           </tr>
         </tbody>
       </table>
     </div>
+  </div>
+</div>
