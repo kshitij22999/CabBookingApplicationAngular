@@ -46,7 +46,7 @@ export class TripBookingAddComponent implements OnInit {
       this.tripBooking=data;
       console.log(data);
     })
-    this.router.navigate(['tripbooking','triplist']);
+    this.router.navigate(['loader']);
   }
 
 }

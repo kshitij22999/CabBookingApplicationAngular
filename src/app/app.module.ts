@@ -16,6 +16,8 @@ import { HttpClientService } from './service/httpclient.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './service/AuthInterceptor';
 import { AuthenticationService } from './service/authentication.service';
+import { LoaderComponent } from './loader/loader.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 
 
@@ -26,7 +28,9 @@ import { AuthenticationService } from './service/authentication.service';
     LoginComponent,
     LogoutComponent,
     HeaderComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoaderComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
